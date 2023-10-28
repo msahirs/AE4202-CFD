@@ -1,0 +1,9 @@
+Rec = 2.51e6  Mach_inf = 0.185
+
+alpha  6 degrees
+cl       cd
+2.416   0.0229
+
+alpha   13.1 degrees
+cl       cd
+3.141   0.0445
