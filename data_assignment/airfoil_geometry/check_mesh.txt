@@ -1,0 +1,96 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2206                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _8993af73-20221106 OPENFOAM=2206 patch=221104 version=2206
+Arch   : "LSB;label=32;scalar=64"
+Exec   : checkMesh
+Date   : Nov 01 2023
+Time   : 15:53:50
+Host   : Lyra
+PID    : 6047
+I/O    : uncollated
+Case   : /mnt/c/Rec/UniStuff/MSc/AE4202_CFDForAerospaceEngineers/Assignment/data_assignment/airfoil_geometry
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Time = 0
+
+Mesh stats 
+    points:           37884
+    internal points:  0
+    faces:            74413
+    internal faces:   36527
+    cells:            18490
+    faces per cell:   6
+    boundary patches: 4
+    point zones:      0
+    face zones:       0
+    cell zones:       1
+
+Overall number of cells of each type:
+    hexahedra:     18490
+    prisms:        0
+    wedges:        0
+    pyramids:      0
+    tet wedges:    0
+    tetrahedra:    0
+    polyhedra:     0
+
+Checking topology...
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Number of regions: 1 (OK).
+
+Checking patch topology for multiply connected surfaces...
+    Patch               Faces    Points   Surface topology                  
+    Wall                37281    37884    ok (non-closed singly connected)  
+    Wing_flap           518      1036     ok (non-closed singly connected)  
+    Inlet               21       44       ok (non-closed singly connected)  
+    Outlet              66       134      ok (non-closed singly connected)  
+
+Checking faceZone topology for multiply connected surfaces...
+    No faceZones found.
+
+Checking basic cellZone addressing...
+    CellZone            Cells        Points       Volume       BoundingBox
+    fluid               18490        37884        169.85963    (-5.8237225 -5 0) (12 5 1)
+
+Checking geometry...
+    Overall domain bounding box (-5.8237225 -5 0) (12 5 1)
+    Mesh has 3 geometric (non-empty/wedge) directions (1 1 1)
+    Mesh has 3 solution (non-empty) directions (1 1 1)
+ ***Boundary openness (1.9846202e-05 3.0449138e-05 -6.2863597e-19) possible hole in boundary description.
+ ***Open cells found, max cell openness: 0.93531845, number of open cells 8
+  <<Writing 8 non closed cells to set nonClosedCells
+  <<Writing 2540 cells with high aspect ratio to set highAspectRatioCells
+    Minimum face area = 8.9848638e-08. Maximum face area = 1.19246.  Face area magnitudes OK.
+ ***Zero or negative cell volume detected.  Minimum negative volume: -2.96268e-07, Number of negative volume cells: 6
+  <<Writing 6 zero volume cells to set zeroVolumeCells
+    Mesh non-orthogonality Max: 112.25449 average: 31.605526
+   *Number of severely non-orthogonal (> 70 degrees) faces: 788.
+ ***Number of non-orthogonality errors: 12.
+  <<Writing 800 non-orthogonal faces to set nonOrthoFaces
+ ***Error in face pyramids: 35 faces are incorrectly oriented.
+  <<Writing 24 faces with incorrect orientation to set wrongOrientedFaces
+ ***Max skewness = 20.105574, 113 highly skew faces detected which may impair the quality of the results
+  <<Writing 113 skew faces to set skewFaces
+    Coupled point location match (average 0) OK.
+
+Failed 6 mesh checks.
+
+End
+

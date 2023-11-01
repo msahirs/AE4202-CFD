@@ -196,11 +196,11 @@ Curve Loop(18) = {30, -98, -29, -95};
 Plane Surface(18) = {18};
 //+
 
-y_disc = 22;
+y_disc = 100;
 
-y_wing = y_disc * 0.25;
+y_wing = y_disc * 0.5;
 y_space = y_disc * 2;
-y_small = y_disc * 0.6;
+y_small = y_disc * 0.5;
 
 Transfinite Curve {42, 86, 28, 95, 93, 29, 98, 97, 96, 35, 26, 27, 22, 88, 90,65, 66} = y_space Using Progression 1;
 Transfinite Curve {89} = y_disc Using Bump 1;
@@ -209,7 +209,7 @@ Transfinite Curve {45,43,94,104} = y_small;
 Transfinite Curve {91,87,40,59} = y_disc Using Progression 1;
 Transfinite Curve {20,19,83,21,24} = y_space Using Progression 0.9;
 Transfinite Curve {22,27,26,35,31,78,84} = y_space Using Progression 1.1;
-Transfinite Curve {61,72} = y_space Using Progression 1.12;
+Transfinite Curve {61,72} = y_space Using Progression 1.1;
 Transfinite Curve {81,102} = y_disc;
 Transfinite Curve {101,82} = y_disc;
 Transfinite Curve {59,96} = y_disc Using Progression 0.85;
@@ -237,8 +237,8 @@ Physical Volume("fluid",501) = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
 //+
 Physical Surface("Inlet", 502) = {125};
 //+
-Physical Surface("Oulet", 503) = {227, 249, 275, 293};
+Physical Surface("Outlet", 503) = {227, 249, 275, 293};
 //+ 
-Physical Surface("Wall", 504) = {478,205, 191, 169, 135, 319, 337, 363, 381, 455, 421, 407, 8, 7, 9, 6, 236, 258, 280, 302, 390, 1, 126, 2, 148, 3, 170, 4, 192, 5, 214, 456, 16, 15, 13, 14, 12, 11, 346, 324, 10, 368,500,17,18};
+Physical Surface("Wall", 504) = {434,412,478,205, 191, 169, 135, 319, 337, 363, 381, 455, 421, 407, 8, 7, 9, 6, 236, 258, 280, 302, 390, 1, 126, 2, 148, 3, 170, 4, 192, 5, 214, 456, 16, 15, 13, 14, 12, 11, 346, 324, 10, 368,500,17,18};
 //+
 Physical Surface("Wing_flap", 505) = {143,117,447,161,183,213,235,499,477,429, 469, 491,267,301,311,345,355,389};
