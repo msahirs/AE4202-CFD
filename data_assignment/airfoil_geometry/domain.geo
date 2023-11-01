@@ -5,7 +5,6 @@ Include "flap.geo";
 // N. B // Wing Points Definition Point([1... 426])
 // N. B // Flap Points Definition Point([427... 644])//+
 
-
 Recursive Delete {
     Point{426}; Point{644}; 
   }
@@ -197,26 +196,49 @@ Curve Loop(18) = {30, -98, -29, -95};
 Plane Surface(18) = {18};
 //+
 
-y_disc = 21;
+y_disc = 22;
 
 y_wing = y_disc * 0.25;
 y_space = y_disc * 2;
+y_small = y_disc * 0.6;
 
-
-Transfinite Curve {39, 21, 24, 41, 31, 42, 78, 43, 84, 85, 71, 92, 86, 28, 95, 93, 29, 98, 97, 96, 72, 61, 83, 35, 35, 26, 27, 22, 88, 90, 50, 46, 45, 65, 66, 100} = y_space Using Progression 1;
-Transfinite Curve {19,20} = y_space Using Progression 1;
-Transfinite Curve {89} = y_disc;
-Transfinite Curve {58, 28,29,30,65,66,103} = y_disc;
-Transfinite Curve {45,43} = y_disc;
-Transfinite Curve {91,87,40,59} = y_disc;
+Transfinite Curve {42, 86, 28, 95, 93, 29, 98, 97, 96, 35, 26, 27, 22, 88, 90,65, 66} = y_space Using Progression 1;
+Transfinite Curve {89} = y_disc Using Bump 1;
+Transfinite Curve {29,30,65,66,103} = y_disc;
+Transfinite Curve {45,43,94,104} = y_small;
+Transfinite Curve {91,87,40,59} = y_disc Using Progression 1;
+Transfinite Curve {20,19,83,21,24} = y_space Using Progression 0.9;
+Transfinite Curve {22,27,26,35,31,78,84} = y_space Using Progression 1.1;
+Transfinite Curve {61,72} = y_space Using Progression 1.12;
 Transfinite Curve {81,102} = y_disc;
-Transfinite Curve {94} = y_disc;
-Transfinite Curve {104} = y_disc;
 Transfinite Curve {101,82} = y_disc;
-Transfinite Curve {59,96} = y_disc;
-Transfinite Curve {57,87} = y_disc;
+Transfinite Curve {59,96} = y_disc Using Progression 0.85;
+Transfinite Curve {57,87} = y_small;
+Transfinite Curve {92,41} = y_small;
+Transfinite Curve {28,58} = y_disc Using Bump 4;
+Transfinite Curve {65,66} = y_disc Using Bump 2;
+Transfinite Curve {100,46} = y_space Using Bump 4;
+Transfinite Curve {39} = y_space Using Progression 0.93;
+Transfinite Curve {50} = y_space Using Progression 1.07;
+Transfinite Curve {45,104} = y_small Using Progression 1.1;
+Transfinite Curve {85, 71} = y_space Using Progression 1.1;
+Transfinite Curve {72} = y_space Using Progression 1.11;
 //+
-Transfinite Curve {36} = y_disc Using Progression 1;
+Transfinite Curve {36} = y_disc Using Bump 1;
 Transfinite Surface {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
 Recombine Surface {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
 //+
+//+
+Extrude {0, 0, 1} {
+  Surface{1}; Surface{2}; Surface{3}; Surface{4}; Surface{5}; Surface{6}; Surface{7}; Surface{8}; Surface{9}; Surface{10}; Surface{11}; Surface{12}; Surface{13}; Surface{14}; Surface{15}; Surface{16}; Surface{17}; Surface{18}; Layers {1}; Recombine;
+}
+//+
+Physical Volume("fluid",501) = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
+//+
+Physical Surface("Inlet", 502) = {125};
+//+
+Physical Surface("Oulet", 503) = {227, 249, 275, 293};
+//+ 
+Physical Surface("Wall", 504) = {478,500,205, 191, 169, 135, 319, 337, 363, 381, 455, 421, 407, 8, 7, 9, 6, 236, 258, 280, 302, 390, 1, 126, 2, 148, 3, 170, 4, 192, 5, 214, 456, 16, 15, 13, 14, 12, 11, 346, 324, 10, 368,478,500,17,18};
+//+
+Physical Surface("Wing_flap", 505) = {143,117,447,161,183,213,235,499,477,429, 469, 491,267,301,311,345,355,389};
