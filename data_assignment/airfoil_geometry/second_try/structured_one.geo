@@ -359,7 +359,6 @@ Line(111) = {663, 674};
 Line(112) = {674, 693};
 //+
 Line(113) = {693, 647};
-
 //+
 Point(699) = {0.25, -y_symm, 0, 1.0};
 //+
@@ -585,3 +584,76 @@ Plane Surface(44) = {44};
 Curve Loop(45) = {96, 113, -126, -119};
 //+
 Plane Surface(45) = {45};
+//+
+Curve Loop(49) = {92, 95, -94, -90};
+//+
+Plane Surface(49) = {49};
+
+// # Start definition of complex surfaces and lines # //
+
+// Curve 29 + 33
+Line(155) = {660,661,662};
+Curve Loop(46) = {32, 110, -34, -155};
+//+
+Plane Surface(46) = {46};
+
+//Curve 48 + 55 + 56
+Line(156) = {662,670,671,672};
+Curve Loop(47) = {34, 111, -57, -156};
+//+
+Plane Surface(47) = {47};
+
+//Curve 93 + 95
+Line(157) = {672,691,692};
+Curve Loop(48) = {57, 112, -96, -157};
+//+
+Plane Surface(48) = {48};
+
+// Curve 18 + 19
+Line(158) = {656,655,379};
+Curve Loop(50) = {17, 158, -134, -10};
+//+
+Plane Surface(50) = {50};
+
+// Curve 37 + 38
+Line(159) = {426,666,654};
+Curve Loop(51) = {15, 28, -159, -136};
+//+
+Plane Surface(51) = {51};
+
+// Curve 35 + 36
+Line(160) = {426,665,554};
+Curve Loop(52) = {160, 147, 39, -37};
+//+
+Plane Surface(52) = {52};
+
+// Curve 73 + 75 + 76
+Line(161) = {72,681,682,683};
+Curve Loop(53) = {161, -77, -70, -128};
+//+
+Plane Surface(53) = {53};
+
+// Curve 66 + 67
+Line(162) = {676,678,677};
+Curve Loop(54) = {162, 74, -75, -72};
+//+
+Plane Surface(54) = {54};
+
+// Curve 74 + 78 + 79 + 80 + 87
+Line(163) = {682,677,684,685,686,687};
+Curve Loop(55) = {76, 88, -89, -163};
+//+
+Plane Surface(55) = {55};
+
+// Curve 51 + 54
+Line(164) = {667,673,670};
+Curve Loop(56) = {46, 48, -164, -41};
+//+
+Plane Surface(56) = {56};
+
+//+
+// Transfinite Curve {48, 55, 56,34,57} = 10 Using Progression 1;
+// Transfinite Curve {156,111} = 30 Using Progression 1;
+// Transfinite Surface{47};//+
+//+//+
+
