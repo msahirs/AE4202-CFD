@@ -8,7 +8,7 @@
 Build  : _8993af73-20221106 OPENFOAM=2206 patch=221104 version=2206
 Arch   : "LSB;label=32;scalar=64"
 Exec   : checkMesh
-Date   : Nov 01 2023
+Date   : Nov 01 2023s
 Time   : 15:53:50
 Host   : Lyra
 PID    : 6047

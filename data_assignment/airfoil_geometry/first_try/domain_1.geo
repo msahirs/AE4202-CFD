@@ -1,6 +1,6 @@
 // SetFactory("OpenCASCADE");
-Include "wing.geo";
-Include "flap.geo";
+Include "./input_geometry/wing.geo";
+Include "./input_geometry/flap.geo";
 
 // N. B // Wing Points Definition Point([1... 426])
 // N. B // Flap Points Definition Point([427... 644])//+
