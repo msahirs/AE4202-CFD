@@ -32,17 +32,19 @@ Point(647) = {x_outlet, -y_symm, 0, 1.0};
 Point(648) = {x_outlet, y_symm, 0, 1.0};
 
 //  ## Cushion variables ## //
-cushion_width = 0.5;
-cushion_f_len = 0.1; //must be greater than 0!
+cushion_width = 0.4;
+cushion_LE_len = 0.1; //must be greater than 0!
+cushion_TE_len = 1.5; // from 0,0
 centre_lead_edge = 229; //id of of point closest to centre of LE
+
 
 //+ Add Inlet Arc
 Circle(3) = {645, centre_lead_edge, 646};
 
 //+ Define cushion points near leading edge
-Point(649) = {-cushion_f_len, cushion_width, 0, 1.0};
+Point(649) = {-cushion_LE_len, cushion_width, 0, 1.0};
 //+
-Point(650) = {-cushion_f_len, -cushion_width, 0, 1.0};
+Point(650) = {-cushion_LE_len, -cushion_width, 0, 1.0};
 
 //+ Connect lines between leading cushion and inlet
 Line(4) = {649, 280};
@@ -57,9 +59,9 @@ Line(7) = {650, 184};
 Circle(8) = {649, centre_lead_edge, 650};
 
 //+
-Point(651) = {0.25, 0.5, 0, 1.0};
+Point(651) = {0.25, cushion_width, 0, 1.0};
 //+
-Point(652) = {0.69, 0.44, 0, 1.0};
+Point(652) = {0.69, cushion_width * 0.9, 0, 1.0};
 //+
 Line(9) = {651, 316};
 //+
@@ -79,11 +81,11 @@ Line(15) = {425, 653};
 //+
 Point(655) = {0.81, 0.14, 0, 1.0};
 //+
-Point(656) = {0.91, 0.39, 0, 1.0};
+Point(656) = {0.91, cushion_width * 0.8, 0, 1.0};
 //+
 Point(657) = {1, 0.1, 0, 1.0};
 //+
-Point(658) = {1.27, 0.29, 0, 1.0};
+Point(658) = {1.27, cushion_width * 0.6, 0, 1.0};
 //+
 Line(17) = {652, 656};
 //+
@@ -99,13 +101,13 @@ Line(22) = {657, 658};
 //+
 Line(23) = {656, 658};
 //+
-Point(659) = {1.13, 0.1, 0, 1.0};
+Point(659) = {1.16, 0.09, 0, 1.0};
 //+
 Line(24) = {657, 659};
 //+
 Line(25) = {653, 659};
 //+
-Point(660) = {1.4, 0.26, 0, 1.0};
+Point(660) = {cushion_TE_len, cushion_width * 0.5, 0, 1.0};
 //+
 Line(26) = {658, 660};
 //+
@@ -113,13 +115,13 @@ Line(27) = {659, 660};
 //+
 Line(28) = {653, 654};
 //+
-Point(661) = {1.4, -0.02, 0, 1.0};
+Point(661) = {cushion_TE_len, -0.02, 0, 1.0};
 //+
 Line(29) = {660, 661};
 //+
 Line(30) = {653, 661};
 //+
-Point(662) = {1.4, -0.04, 0, 1.0};
+Point(662) = {cushion_TE_len, -0.04, 0, 1.0};
 //+
 Line(33) = {662, 661};
 //+
@@ -155,11 +157,11 @@ Line(43) = {427, 668};
 //+
 Line(44) = {669, 668};
 //+
-Point(670) = {1.4, -0.08, 0, 1.0};
+Point(670) = {cushion_TE_len, -0.08, 0, 1.0};
 //+
-Point(671) = {1.4, -0.1, 0, 1.0};
+Point(671) = {cushion_TE_len, -0.1, 0, 1.0};
 //+
-Point(672) = {1.4, -0.12, 0, 1.0};
+Point(672) = {cushion_TE_len, -0.12, 0, 1.0};
 //+
 Line(46) = {654, 662};
 
@@ -213,13 +215,13 @@ Line(66) = {676, 678};
 //+
 Line(67) = {678, 677};
 //+
-Point(679) = {0.21, -0.52, 0, 1.0};
+Point(679) = {0.25, -cushion_width, 0, 1.0};
 //+
 Line(68) = {149, 679};
 //+
 Line(69) = {650, 679};
 //+
-Point(680) = {0.69, -0.52, 0, 1.0};
+Point(680) = {0.69, -cushion_width*0.9, 0, 1.0};
 //+
 Line(70) = {102, 680};
 //+
@@ -238,7 +240,7 @@ Line(74) = {677, 682};
 //+
 Line(75) = {681, 682};
 //+
-Point(683) = {0.85, -0.52, 0, 1.0};
+Point(683) = {0.91, -cushion_width * 0.8, 0, 1.0};
 //+
 Line(76) = {682, 683};
 //+
@@ -274,9 +276,9 @@ Line(86) = {687, 688};
 //+
 Line(87) = {686, 687};
 //+
-Point(689) = {1.13, -0.54, 0, 1.0};
+Point(689) = {1.2, -cushion_width * 0.6, 0, 1.0};
 //+
-Point(690) = {1.18, -0.54, 0, 1.0};
+Point(690) = {1.25, -cushion_width * 0.6, 0, 1.0};
 //+
 Line(88) = {683, 689};
 //+
@@ -286,13 +288,13 @@ Line(90) = {688, 690};
 //+
 Line(91) = {689, 690};
 //+
-Point(691) = {1.4, -0.15, 0, 1.0};
+Point(691) = {cushion_TE_len, -0.15, 0, 1.0};
 //+
 Line(92) = {688, 691};
 //+
 Line(93) = {672, 691};
 //+
-Point(692) = {1.4, -0.55, 0, 1.0};
+Point(692) = {cushion_TE_len, -0.7*cushion_width, 0, 1.0};
 //+
 Line(94) = {690, 692};
 //+
@@ -656,4 +658,6 @@ Plane Surface(56) = {56};
 // Transfinite Curve {156,111} = 30 Using Progression 1;
 // Transfinite Surface{47};//+
 //+//+
-
+all_points[] = Point "*";
+//+
+MeshSize {all_points} = 0.0100;
