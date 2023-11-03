@@ -101,7 +101,7 @@ Line(33) = {662, 661};
 
 //+
 //+
-Point(666) = {0.99, 0, 0, 1.0};
+Point(666) = {0.99, 0.002, 0, 1.0};
 //+
 Line(37) = {426, 666};
 //+
@@ -116,9 +116,9 @@ Point(667) = {1.2, -0.08, 0, 1.0};
 //+
 Line(41) = {654, 667};
 //+
-Point(668) = {1.21, -0.115, 0, 1.0};
+Point(668) = {1.23, -0.115, 0, 1.0};
 //+
-Point(669) = {1.21, -0.11, 0, 1.0};
+Point(669) = {1.23, -0.11, 0, 1.0};
 //+
 Line(42) = {643, 669};
 //+
@@ -161,7 +161,7 @@ Line(68) = {149, 679};
 //+
 Line(69) = {650, 679};
 //+
-Point(680) = {0.69, -cushion_width*0.9, 0, 1.0};
+Point(680) = {0.69, -cushion_width*0.8, 0, 1.0};
 //+
 Line(70) = {102, 680};
 //+
@@ -173,8 +173,6 @@ Point(683) = {0.91, -cushion_width * 0.8, 0, 1.0};
 Point(689) = {1.2, -cushion_width * 0.6, 0, 1.0};
 //+
 Point(690) = {1.25, -cushion_width * 0.6, 0, 1.0};
-//+
-Line(88) = {683, 689};
 //+
 Line(91) = {689, 690};
 Point(692) = {cushion_TE_len, -0.7*cushion_width, 0, 1.0};
@@ -264,8 +262,6 @@ Line(120) = {646, 699};
 //+
 Line(121) = {699, 700};
 //+
-Line(123) = {701, 704};
-//+
 Line(124) = {704, 702};
 //+
 Line(125) = {702, 703};
@@ -273,9 +269,9 @@ Line(125) = {702, 703};
 Line(126) = {703, 647};
 //+
 //+
-Split Curve {1} Point {21,280, 184, 316, 149, 356, 379, 38, 426, 425};
+Split Curve {1} Point {21,280, 184, 316, 149, 356, 379, 426, 425,72,102,47};
 //+
-Split Curve {2} Point {533, 554, 513, 504, 575, 609, 643, 427,480};
+Split Curve {2} Point {533, 554, 575, 609, 643, 427,506};
 //+
 
 // /* Test transfite with complex lines and surface connects */
@@ -301,27 +297,19 @@ Split Curve {2} Point {533, 554, 513, 504, 575, 609, 643, 427,480};
 // //Bump allows for distribution of points to be closer to centre of arclength
 // Transfinite Curve {8, 3, 131} = arc_disc Using Bump 1;
 // //Radii of cushion frontal arc
-// Transfinite Curve {4,7} = cushion_y_disc Using Progression 1;
+// Transfinite Curve {4,7} = cushion_y_disc Using   ion 1;
 // //Create mapped surface for front outer and cushion arcs
 //+
 Line(152) = {554, 426};
 //+
 Line(153) = {21, 533};
 //+
-Line(154) = {38, 513};
-//+
 Line(156) = {656, 379};
 //+
 Line(157) = {658, 425};
 //+
-Line(158) = {480, 683};
-//+
-Point(705) = {0.81, -0.34, -0.02, 1.0};
-//+
-Line(161) = {504, 705};
+Point(705) = {0.81, -0.3, -0.02, 1.0};
 
-//+
-Line(163) = {504, 102};
 //+
 Line(164) = {668, 690};
 //+
@@ -507,10 +495,6 @@ Line(205) = {718, 701};
 //+
 Line(206) = {718, 705};
 //+
-Curve Loop(20) = {88, 117, -123, -116};
-//+
-Plane Surface(20) = {20};
-//+
 Curve Loop(21) = {116, -205, 206, 203};
 //+
 Plane Surface(21) = {21};
@@ -530,80 +514,14 @@ Plane Surface(24) = {24};
 Curve Loop(30) = {198, 197, -193, -157};
 //+
 Plane Surface(30) = {30};
-//+
-Curve Loop(31) = {199, -169, -195, -197};
-//+
-Plane Surface(31) = {31};
-//+
-Curve Loop(32) = {130, -4, 8, 7};
-//+
-Plane Surface(32) = {32};
-//+
-Curve Loop(33) = {4, 131, -9, -13};
-//+
-Plane Surface(33) = {33};
-//+
-Curve Loop(34) = {14, 10, -132, -9};
-//+
-Plane Surface(34) = {34};
-//+
-Curve Loop(35) = {17, 156, -133, -10};
-//+
-Plane Surface(35) = {35};
-//+
-Curve Loop(36) = {23, 157, -134, -156};
-//+
-Plane Surface(36) = {36};
-//+
-Curve Loop(37) = {194, -37, -135, 193};
-//+
-Plane Surface(37) = {37};
-//+
+
 Curve Loop(38) = {152, 37, -39, -141};
 //+
 Plane Surface(38) = {38};
 //+
-Curve Loop(39) = {152, 136, 153, 140};
-//+
-Plane Surface(39) = {39};
-//+
-Curve Loop(40) = {153, -139, -154, -127};
-//+
-Plane Surface(40) = {40};
-//+
-Split Curve {128} Point {102};
-//+
-Curve Loop(41) = {154, -138, 163, -207};
-//+
-Plane Surface(41) = {41};
-//+
-Curve Loop(42) = {195, 28, -38, -194};
-//+
-Plane Surface(42) = {42};
-//+
 Curve Loop(43) = {38, -40, -142, 39};
 //+
 Plane Surface(43) = {43};
-//+
-Curve Loop(44) = {137, 161, 203, -158};
-//+
-Plane Surface(44) = {44};
-//+
-Curve Loop(45) = {163, 70, 202, -161};
-//+
-Plane Surface(45) = {45};
-//+
-Curve Loop(46) = {70, -71, -68, -208};
-//+
-Plane Surface(46) = {46};
-//+
-Curve Loop(47) = {68, -69, 7, -129};
-//+
-Plane Surface(47) = {47};
-//+
-Curve Loop(48) = {145, 158, 88, -165};
-//+
-Plane Surface(48) = {48};
 //+
 Curve Loop(49) = {43, 164, -91, -165};
 //+
@@ -612,10 +530,6 @@ Plane Surface(49) = {49};
 Curve Loop(50) = {44, -43, -144, 42};
 //+
 Plane Surface(50) = {50};
-//+
-Curve Loop(51) = {49, -143, 40, 41};
-//+
-Plane Surface(51) = {51};
 //+
 Curve Loop(52) = {28, 170, 174, -173};
 //+
@@ -656,3 +570,112 @@ Plane Surface(60) = {60};
 Curve Loop(61) = {52, 50, -55, -54};
 //+
 Plane Surface(61) = {61};
+//+
+Line(209) = {72, 705};
+
+//+
+Line(217) = {506, 47};
+//+
+Line(218) = {47, 683};
+//+
+Point(725) = {0.96, -0.3, -0.02, 1.0};
+//+
+Line(219) = {506, 725};
+//+
+Point(726) = {1.02, -5.01, -0.02, 1.0};
+//+
+Line(220) = {726, 725};
+//+
+Line(221) = {683, 725};
+//+
+Line(222) = {725, 689};
+//+
+Line(223) = {701, 726};
+//+
+Line(224) = {726, 704};
+//+
+Curve Loop(62) = {4, -132, -7, -8};
+//+
+Plane Surface(62) = {62};
+//+
+Curve Loop(63) = {9, -133, -4, 13};
+//+
+Plane Surface(63) = {63};
+//+
+Curve Loop(64) = {131, -7, 69, -68};
+//+
+Plane Surface(64) = {64};
+//+
+Curve Loop(65) = {70, -71, -68, -130};
+//+
+Plane Surface(65) = {65};
+//+
+Curve Loop(66) = {134, -10, -14, 9};
+//+
+Plane Surface(66) = {66};
+//+
+Curve Loop(67) = {156, -135, -10, 17};
+//+
+Plane Surface(67) = {67};
+//+
+Curve Loop(68) = {23, 157, -136, -156};
+//+
+Plane Surface(68) = {68};
+//+
+Curve Loop(70) = {152, 138, 153, 140};
+//+
+Plane Surface(70) = {70};
+//+
+Curve Loop(71) = {139, -153, 127, -217};
+//+
+Plane Surface(71) = {71};
+//+
+Curve Loop(72) = {219, -221, -218, -217};
+//+
+Plane Surface(72) = {72};
+//+
+Curve Loop(73) = {145, 219, 222, -165};
+//+
+Plane Surface(73) = {73};
+//+
+Curve Loop(74) = {117, -224, 220, 222};
+//+
+Plane Surface(74) = {74};
+//+
+Curve Loop(75) = {223, 220, -221, 116};
+//+
+Plane Surface(75) = {75};
+//+
+Curve Loop(76) = {128, 209, 203, -218};
+//+
+Plane Surface(76) = {76};
+//+
+Curve Loop(77) = {202, -209, 129, 70};
+//+
+Plane Surface(77) = {77};
+//+
+Curve Loop(78) = {137, 37, -194, -193};
+//+
+Plane Surface(78) = {78};
+//+
+Curve Loop(79) = {195, 28, -38, -194};
+//+
+Plane Surface(79) = {79};
+
+//+
+Curve Loop(80) = {197, 195, 169, -199};
+//+
+Plane Surface(80) = {80};
+//+
+
+//+
+Curve Loop(81) = {143, -49, -41, -40};
+//+
+Plane Surface(81) = {81};
+
+
+//+
+Transfinite Curve {:} = 30;
+Transfinite Curve {137, 194, 28, 174, 33, 188} = 30;
+Transfinite Surface{:};
+Recombine Surface{:};
