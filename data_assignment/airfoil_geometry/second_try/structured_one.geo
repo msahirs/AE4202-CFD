@@ -334,7 +334,7 @@ Point(708) = {1.14, -0.02, -0.02, 1.0};
 //+
 Point(709) = {1.35, 0.22, -0.02, 1.0};
 //+
-Point(710) = {2.35, 4.99, -0.02, 1.0};
+Point(710) = {2.35, y_symm, -0.02, 1.0};
 //+
 Line(173) = {653, 708};
 //+
@@ -346,7 +346,7 @@ Line(176) = {706, 710};
 //+
 Line(177) = {708, 661};
 //+
-Point(711) = {2.42, 4.99, -0.02, 1.0};
+Point(711) = {2.42, y_symm, -0.02, 1.0};
 //+
 Line(178) = {711, 709};
 //+
@@ -358,11 +358,11 @@ Line(182) = {710, 711};
 //+
 Line(183) = {711, 698};
 //+
-Point(712) = {14, 0.05, -0.02, 1.0};
+Point(712) = {x_outlet, 0.05, -0.02, 1.0};
 //+
-Point(713) = {14, -0.12, -0.02, 1.0};
+Point(713) = {x_outlet, -0.12, -0.02, 1.0};
 //+
-Point(714) = {14, -0.16, -0.02, 1.0};
+Point(714) = {x_outlet, -0.16, -0.02, 1.0};
 //+
 Line(184) = {713, 670};
 //+
@@ -390,7 +390,7 @@ Line(194) = {715, 666};
 //+
 Point(716) = {1.19, 0.25, -0.02, 1.0};
 //+
-Point(717) = {2.27, 5, -0.02, 1.0};
+Point(717) = {2.27, y_symm, -0.02, 1.0};
 //+
 Line(196) = {717, 716};
 //+
@@ -409,7 +409,7 @@ Line(202) = {680, 705};
 //+
 Line(203) = {705, 683};
 //+
-Point(718) = {0.81, -5, -0.02, 1.0};
+Point(718) = {0.81, -y_symm, -0.02, 1.0};
 //+
 Line(204) = {700, 718};
 //+
@@ -427,7 +427,7 @@ Point(725) = {0.89, -0.3, -0.02, 1.0};
 //+
 Line(219) = {506, 725};
 //+
-Point(726) = {1.02, -5.01, -0.02, 1.0};
+Point(726) = {1.02, -y_symm, -0.02, 1.0};
 //+
 Line(220) = {726, 725};
 //+
@@ -457,7 +457,7 @@ Plane Surface(4) = {4};
 //+
 Curve Loop(5) = {137, 37, -194, -193};
 //+
-Plane Surface(5) = {5};
+Surface(5) = {5};
 //+
 Curve Loop(8) = {177, -33, -172, 174};
 //+
@@ -465,7 +465,7 @@ Plane Surface(8) = {8};
 //+
 Curve Loop(9) = {186, -33, 34, -188};
 //+
-Plane Surface(9) = {9};
+Surface(9) = {9};
 
 
 
@@ -481,14 +481,14 @@ Line(227) = {653, 654};
 //+
 Curve Loop(10) = {225, 227, -226, -194};
 //+
-Plane Surface(10) = {10};
+Surface(10) = {10};
 Curve Loop(12) = {226, -40, -142, 39};
 //+
 Plane Surface(12) = {12};
 
 Curve Loop(11) = {173, -174, -170, -227};
 //+
-Plane Surface(11) = {11};
+Surface(11) = {11};
 
 
 //+
@@ -498,7 +498,7 @@ Plane Surface(14) = {9};
 //+
 Curve Loop(13) = {197, 225, -169, -199};
 //+
-Plane Surface(15) = {13};
+Surface(15) = {13};
 //+
 Curve Loop(14) = {197, -193, -157, 198};
 //+
@@ -516,11 +516,11 @@ Curve Loop(18) = {41, 49, -143, 40};
 //+
 Curve Loop(19) = {175, 180, 29, -177};
 //+
-Plane Surface(20) = {19};
+Surface(20) = {19};
 //+
 Curve Loop(20) = {172, 48, -54, -171};
 //+
-Plane Surface(21) = {20};
+Surface(21) = {20};
 //+
 Plane Surface(22) = {18};
 //+
@@ -569,12 +569,6 @@ Curve Loop(31) = {23, 157, -136, -156};
 //+
 Plane Surface(32) = {31};
 Surface(33) = {27};
-
-Transfinite Curve{:} = 20;
-// Transfinite Curve{198} = 20;
-
-Transfinite Surface{:};
-Recombine Surface{:};
 //+
 Curve Loop(32) = {196, 199, 176, -201};
 //+
@@ -590,15 +584,15 @@ Plane Surface(36) = {34};
 //+
 Curve Loop(35) = {139, -153, 127, -217};
 //+
-Plane Surface(37) = {35};
+Surface(37) = {35};
 //+
 Curve Loop(36) = {219, -221, -218, -217};
 //+
-Plane Surface(38) = {36};
+Surface(38) = {36};
 //+
 Curve Loop(37) = {145, 219, 222, -165};
 //+
-Plane Surface(39) = {37};
+Surface(39) = {37};
 //+
 Plane Surface(40) = {30};
 //+
@@ -612,23 +606,23 @@ Plane Surface(42) = {39};
 //+
 Curve Loop(40) = {192, -57, 166, 96};
 //+
-Plane Surface(43) = {40};
+Surface(43) = {40};
 //+
 Curve Loop(41) = {56, 185, 191, -57};
 //+
-Plane Surface(44) = {41};
+Surface(44) = {41};
 //+
 Curve Loop(42) = {190, -185, -55, -184};
 //+
-Plane Surface(45) = {42};
+Surface(45) = {42};
 //+
 Curve Loop(43) = {34, 189, 184, -48};
 //+
-Plane Surface(46) = {43};
+Surface(46) = {43};
 //+
 Curve Loop(44) = {187, 186, -29, 32};
 //+
-Plane Surface(47) = {44};
+Surface(47) = {44};
 //+
 Plane Surface(48) = {32};
 //+
@@ -636,7 +630,7 @@ Plane Surface(49) = {29};
 //+
 Curve Loop(45) = {183, -101, -180, -178};
 //+
-Plane Surface(50) = {45};
+Surface(50) = {45};
 //+
 Curve Loop(46) = {101, 108, 109, -32};
 //+
@@ -668,11 +662,11 @@ Plane Surface(57) = {52};
 //+
 Curve Loop(53) = {218, -203, -209, -128};
 //+
-Plane Surface(58) = {53};
+Surface(58) = {53};
 //+
 Curve Loop(54) = {209, -202, -70, -129};
 //+
-Plane Surface(59) = {54};
+Surface(59) = {54};
 //+
 Curve Loop(55) = {71, -70, 130, 68};
 //+
@@ -697,3 +691,10 @@ Plane Surface(64) = {59};
 Curve Loop(60) = {156, -135, -10, 17};
 //+
 Plane Surface(65) = {60};
+
+
+Transfinite Curve{:} = 15;
+// Transfinite Curve{198} = 20;
+
+Transfinite Surface{:};
+Recombine Surface{:};
