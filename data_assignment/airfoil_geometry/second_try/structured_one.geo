@@ -309,7 +309,7 @@ Line(156) = {656, 379};
 //+
 Line(157) = {658, 425};
 //+
-Point(705) = {0.81, -0.3, -0.02, 1.0};
+Point(705) = {0.75, -0.75*cushion_width, -0.02, 1.0};
 
 //+
 Line(164) = {668, 690};
@@ -546,7 +546,7 @@ Plane Surface(27) = {25};
 //+
 Curve Loop(26) = {53, 166, -94, -164};
 //+
-Plane Surface(28) = {26};
+Surface(28) = {26};
 //+
 Curve Loop(27) = {100, 200, 196, -198};
 //+
@@ -564,7 +564,7 @@ Curve Loop(29) = {176, 182, 178, -179};
 //+
 Curve Loop(30) = {91, 118, -124, -117};
 //+
-Plane Surface(31) = {30};
+Surface(31) = {30};
 Curve Loop(31) = {23, 157, -136, -156};
 //+
 Plane Surface(32) = {31};
@@ -598,7 +598,7 @@ Plane Surface(40) = {30};
 //+
 Curve Loop(38) = {119, -125, -118, 94};
 //+
-Plane Surface(41) = {38};
+Surface(41) = {38};
 //+
 Curve Loop(39) = {96, 113, -126, -119};
 //+
@@ -646,19 +646,19 @@ Plane Surface(53) = {48};
 //+
 Curve Loop(49) = {202, -206, -204, -115};
 //+
-Plane Surface(54) = {49};
+Surface(54) = {49};
 //+
 Curve Loop(50) = {205, -116, -203, -206};
 //+
-Plane Surface(55) = {50};
+Surface(55) = {50};
 //+
 Curve Loop(51) = {221, -220, -223, -116};
 //+
-Plane Surface(56) = {51};
+Surface(56) = {51};
 //+
 Curve Loop(52) = {224, -117, -222, -220};
 //+
-Plane Surface(57) = {52};
+Surface(57) = {52};
 //+
 Curve Loop(53) = {218, -203, -209, -128};
 //+
@@ -698,3 +698,21 @@ Transfinite Curve{:} = 15;
 
 Transfinite Surface{:};
 Recombine Surface{:};
+
+//+
+Extrude {0, 0, 1} {
+  Surface{:}; Layers {1}; Recombine;
+}
+
+//+
+Physical Volume("fluid",2000) = {};
+//+
+Physical Surface("Inlet", 2001) = {};
+//+
+Physical Surface("Outlet", 2002) = {};
+//+ 
+Physical Surface("Side", 2003) = {};
+//+
+Physical Surface("Airfoil", 2004) = {};
+//+
+Physical Surface("Flap", 2005) = {};
