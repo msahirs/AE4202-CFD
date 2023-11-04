@@ -230,7 +230,7 @@ Recombine Surface {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
 //+
 //+
 Extrude {0, 0, 1} {
-  Surface{1}; Surface{2}; Surface{3}; Surface{4}; Surface{5}; Surface{6}; Surface{7}; Surface{8}; Surface{9}; Surface{10}; Surface{11}; Surface{12}; Surface{13}; Surface{14}; Surface{15}; Surface{16}; Surface{17}; Surface{18}; Layers {1}; Recombine;
+  Plane Surface{1}; Plane Surface{2}; Plane Surface{3}; Plane Surface{4}; Plane Surface{5}; Plane Surface{6}; Plane Surface{7}; Plane Surface{8}; Plane Surface{9}; Plane Surface{10}; Plane Surface{11}; Plane Surface{12}; Plane Surface{13}; Plane Surface{14}; Plane Surface{15}; Plane Surface{16}; Plane Surface{17}; Plane Surface{18}; Layers {1}; Recombine;
 }
 //+
 Physical Volume("fluid",501) = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
