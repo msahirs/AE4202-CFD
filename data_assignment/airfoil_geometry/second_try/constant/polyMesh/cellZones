@@ -15,13 +15,13 @@ FoamFile
     object      cellZones;
     meta
     {
-        names           1 ( fluid );
+        names           1 ( Fluid );
     }
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 1
-(fluid
+(Fluid
 {
     type            cellZone;
     cellLabels      List<label> 
