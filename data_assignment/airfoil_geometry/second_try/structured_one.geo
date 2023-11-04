@@ -688,13 +688,13 @@ Transfinite Curve{:} = 15;
 Transfinite Surface{:};
 Recombine Surface{:};
 
-// //+
-// Extrude {0, 0, 1} {
-//   Surface{:}; Layers {1}; Recombine;
-// }
+//+
+Extrude {0, 0, 1} {
+  Surface{:}; Layers {1}; Recombine;
+}
 
 //+
-Physical Volume("fluid", 2000) = {1,2,3,4,32};
+Physical Volume("fluid", 2000) = {1,2,3,4,29,27,28,41,42,43,40,7,39,38,37,36,35,34,25,49,48,47,46,45};
 //+
 Physical Surface("Inlet", 2001) = {236};
 //+
