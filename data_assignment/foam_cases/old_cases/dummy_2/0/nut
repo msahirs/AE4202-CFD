@@ -36,7 +36,12 @@ boundaryField
         type            empty;
     }
 
-    Wing_flap
+    Airfoil
+    {
+        type            nutUSpaldingWallFunction;
+        value           uniform 0;
+    }
+    Flap
     {
         type            nutUSpaldingWallFunction;
         value           uniform 0;

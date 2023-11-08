@@ -36,7 +36,12 @@ boundaryField
         type            empty;
     }
 
-    Wing_flap
+    Airfoil
+    {
+        type           noSlip;
+    }
+
+    Flap
     {
         type           noSlip;
     }

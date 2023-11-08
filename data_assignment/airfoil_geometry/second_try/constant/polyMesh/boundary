@@ -22,15 +22,15 @@ FoamFile
     {
         type            patch;
         physicalType    patch;
-        nFaces          22596;
+        nFaces          22344;
         startFace       22022;
     }
     Inlet
     {
         type            patch;
         physicalType    patch;
-        nFaces          14;
-        startFace       44618;
+        nFaces          266;
+        startFace       44366;
     }
     Airfoil
     {

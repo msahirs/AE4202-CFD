@@ -48,6 +48,8 @@ divSchemes
     div((phi|interpolate(rho)),p) Gauss upwind;
 
     div(((rho*nuEff)*dev2(T(grad(U)))))    Gauss linear;
+    div((nuEff*dev2(T(grad(U)))))        Gauss linear;
+    div(phi,nuTilda)    Gauss linear;
 }
 
 laplacianSchemes

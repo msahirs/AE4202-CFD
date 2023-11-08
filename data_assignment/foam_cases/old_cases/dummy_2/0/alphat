@@ -37,7 +37,14 @@ boundaryField
         type            zeroGradient;
     }
 
-    Wing_flap
+    Airfoil
+    {
+        type            compressible::alphatWallFunction;
+        Prt             0.85;
+        value           uniform 0;
+    }
+
+    Flap
     {
         type            compressible::alphatWallFunction;
         Prt             0.85;

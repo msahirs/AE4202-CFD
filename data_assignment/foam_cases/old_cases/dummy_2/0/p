@@ -31,7 +31,12 @@ boundaryField
         type            empty;
     }
 
-    Wing_flap
+    Airfoil
+    {
+        type            zeroGradient;
+    }
+
+    Flap
     {
         type            zeroGradient;
     }

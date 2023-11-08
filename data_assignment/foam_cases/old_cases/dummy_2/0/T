@@ -36,7 +36,13 @@ boundaryField
         type            empty;
     }
 
-    Wing_flap
+    Airfoil
+    {
+        type            fixedValue;
+        value           uniform 1;
+    }
+
+    Flap
     {
         type            fixedValue;
         value           uniform 1;

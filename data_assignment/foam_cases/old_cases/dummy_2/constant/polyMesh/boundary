@@ -16,35 +16,42 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-4
+5
 (
-    Wall
+    Side
     {
-        type            patch;
+        type            empty;
         physicalType    patch;
-        nFaces          37281;
-        startFace       36527;
-    }
-    Wing_flap
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          518;
-        startFace       73808;
+        nFaces          22344;
+        startFace       22022;
     }
     Inlet
     {
         type            patch;
         physicalType    patch;
-        nFaces          21;
-        startFace       74326;
+        nFaces          266;
+        startFace       44366;
+    }
+    Airfoil
+    {
+        type            wall;
+        physicalType    patch;
+        nFaces          168;
+        startFace       44632;
     }
     Outlet
     {
         type            patch;
         physicalType    patch;
-        nFaces          66;
-        startFace       74347;
+        nFaces          112;
+        startFace       44800;
+    }
+    Flap
+    {
+        type            wall;
+        physicalType    patch;
+        nFaces          98;
+        startFace       44912;
     }
 )
 
