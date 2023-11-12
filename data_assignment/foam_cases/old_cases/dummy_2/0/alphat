@@ -24,10 +24,10 @@ boundaryField
     Inlet
     {
         type            calculated;
-        value           uniform 3.95922262407435e-0;
+        value           $internalField;
     }
 
-    Wall
+    Side
     {
         type            empty;
     }
@@ -40,14 +40,14 @@ boundaryField
     Airfoil
     {
         type            compressible::alphatWallFunction;
-        Prt             0.85;
+        Prt 0.85;
         value           uniform 0;
     }
 
     Flap
     {
         type            compressible::alphatWallFunction;
-        Prt             0.85;
+        Prt 0.85;
         value           uniform 0;
     }
 }

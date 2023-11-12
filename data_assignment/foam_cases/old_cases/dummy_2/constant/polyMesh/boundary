@@ -22,36 +22,36 @@ FoamFile
     {
         type            empty;
         physicalType    patch;
-        nFaces          22344;
-        startFace       22022;
+        nFaces          343114;
+        startFace       342187;
     }
     Inlet
     {
         type            patch;
         physicalType    patch;
-        nFaces          266;
-        startFace       44366;
+        nFaces          1151;
+        startFace       685301;
     }
     Airfoil
     {
         type            wall;
         physicalType    patch;
-        nFaces          168;
-        startFace       44632;
+        nFaces          258;
+        startFace       686452;
     }
     Outlet
     {
         type            patch;
         physicalType    patch;
-        nFaces          112;
-        startFace       44800;
+        nFaces          312;
+        startFace       686710;
     }
     Flap
     {
         type            wall;
         physicalType    patch;
-        nFaces          98;
-        startFace       44912;
+        nFaces          133;
+        startFace       687022;
     }
 )
 

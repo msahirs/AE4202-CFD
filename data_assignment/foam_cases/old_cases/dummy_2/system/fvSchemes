@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2206                                 |
+|  \\    /   O peration     | Version:  v2006                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -10,46 +10,35 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
+    location    "system";
     object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+fluxScheme      Kurganov;
+
 ddtSchemes
 {
-    default         Euler;
+    default         backward;
 }
 
 gradSchemes
 {
-    default         Gauss linear;
-
-    limited         cellLimited Gauss linear 1;
-    grad(U)         $limited;
-    grad(k)         $limited;
-    grad(omega)     $limited;
+    default      leastSquares;
 }
 
 divSchemes
 {
     default         none;
-
-    div(phi,U)      Gauss linearUpwind limited;
-
-    energy          Gauss linearUpwind limited;
-    div(phi,e)      $energy;
-    div(phi,K)      $energy;
-    div(phi,Ekp)    $energy;
-
-    turbulence      Gauss linearUpwind limited;
-    div(phi,k)      $turbulence;
-    div(phi,omega)  $turbulence;
-
-    div(phiv,p)     Gauss upwind;
-    div((phi|interpolate(rho)),p) Gauss upwind;
-
-    div(((rho*nuEff)*dev2(T(grad(U)))))    Gauss linear;
-    div((nuEff*dev2(T(grad(U)))))        Gauss linear;
-    div(phi,nuTilda)    Gauss linear;
+    div(tauMC)      Gauss linear;
+    div(phi,U)      Gauss vanLeerV;
+  div(phiv,p)      Gauss upwind;
+  div(phid,p)      Gauss vanLeer;
+  div(phi,K)      Gauss vanLeer;
+  div(phi,e)      Gauss vanLeer;
+  div(phi,nuTilda) Gauss vanLeer;
+  div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear ;
+  div(phi,Ekp) Gauss vanLeer;
 }
 
 laplacianSchemes
@@ -59,7 +48,10 @@ laplacianSchemes
 
 interpolationSchemes
 {
-    default         linear;
+    default         midPoint;
+    reconstruct(rho) vanLeer;
+    reconstruct(U)  vanLeerV;
+    reconstruct(T)  vanLeer;
 }
 
 snGradSchemes
@@ -71,6 +63,5 @@ wallDist
 {
     method          meshWave;
 }
-
 
 // ************************************************************************* //

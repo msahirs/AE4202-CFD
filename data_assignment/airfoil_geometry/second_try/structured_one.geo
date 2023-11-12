@@ -682,8 +682,15 @@ Curve Loop(60) = {156, -135, -10, 17};
 Plane Surface(65) = {60};
 
 
-Transfinite Curve{:} = 15;
-// Transfinite Curve{198} = 20;
+// Cushion
+Transfinite Curve{:} = 20;
+// External
+Transfinite Curve{5,97,98,99,100,196,176,178,101,109,6,114,115,206,116,220,117,118,119,113} = 100;
+// Frontal Arc
+Transfinite Curve{132,8,3} = 50;
+
+// Wake x
+Transfinite Curve{108,32,186,34,184,185,57,96,126} = 400;
 
 Transfinite Surface{:};
 Recombine Surface{:};
