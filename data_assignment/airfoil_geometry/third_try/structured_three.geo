@@ -63,9 +63,9 @@ Circle(8) = {649, centre_lead_edge, 650};
 //+
 Point(658) = {0.9436, cushion_width * 0.7, 0, 1.0};
 //+
-Point(668) = {1.23, -0.11-0.0022, 0, 1.0};
+Point(668) = {1.26, -0.11-0.0022, 0, 1.0};
 //+
-Point(669) = {1.23, -0.11-0.00132, 0, 1.0};
+Point(669) = {1.26, -0.11-0.00132, 0, 1.0};
 //+
 Line(42) = {643, 669};
 //+
@@ -77,7 +77,7 @@ Point(683) = {0.822, -cushion_width * 0.75, 0, 1.0};
 //+
 Point(689) = {1.2, -cushion_width * 0.6, 0, 1.0};
 //+
-Point(690) = {1.23, -cushion_width * 0.6, 0, 1.0};
+Point(690) = {1.26, -cushion_width * 0.6, 0, 1.0};
 //+
 Line(91) = {689, 690};
 
@@ -89,7 +89,7 @@ Line(100) = {658, 697};
 //+
 Point(701) = {0.822, -y_symm, 0, 1.0};
 //+
-Point(702) = {1.23, -y_symm, 0, 1.0};
+Point(702) = {1.26, -y_symm, 0, 1.0};
 
 Point(704) = {1.20, -y_symm, 0, 1.0};
 //+
@@ -105,33 +105,6 @@ Line(124) = {704, 702};
 Split Curve {1} Point {280, 184, 426, 425,47};
 //+
 Split Curve {2} Point {557, 643, 427,506};
-//+
-
-// /* Test transfite with complex lines and plane surface connects */
-// // Test unstructured Mesh definition (just for errors in plane surface definition)
-// // MeshSize {:} = 0.02;
-
-// // Transfinite Curve {48, 55, 56,34,57} = 10 Using Progression 1;
-// // Transfinite Curve {156,111} = 30 Using Progression 1;
-// // Transfinite Plane Surface{47};
-
-// //// TRANSFINITE LINE DEFINITIONS ////
-
-// /* Part outside the cushion is called outer btw, while inside "cushion" */
-
-// outer_y_disc = 20;
-// cushion_y_disc = 20;
-// arc_disc = 30;
-
-
-// //Radii of outer frontal arc
-// Transfinite Curve {5, 6} = outer_y_disc Using Progression 1;
-// //Frontal outer arc to cushion at LE to LE Curve
-// //Bump allows for distribution of points to be closer to centre of arclength
-// Transfinite Curve {8, 3, 131} = arc_disc Using Bump 1;
-// //Radii of cushion frontal arc
-// Transfinite Curve {4,7} = cushion_y_disc Using   ion 1;
-// //Create mapped plane surface for front outer and cushion arcs
 //+
 Line(152) = {557, 426};
 
@@ -170,7 +143,7 @@ Line(223) = {701, 726};
 //+
 Line(224) = {726, 704};
 //+
-Point(727) = {1.23, -0.0768, 0, 1.0};
+Point(727) = {1.26, -0.0768, 0, 1.0};
 //+
 Line(227) = {727, 669};
 //+
@@ -197,25 +170,6 @@ Line(244) = {698, 648};
 Line(245) = {646, 701};
 //+
 Line(246) = {702, 647};
-
-
-
-
-// // Cushion
-// Transfinite Curve{:} = 20;
-// // External
-// Transfinite Curve{5,97,98,99,100,196,176,178,101,109,6,114,115,206,116,220,117,118,119,113} = 100;
-// // Frontal Arc
-// Transfinite Curve{132,8,3} = 50;
-
-// // Wake x
-// Transfinite Curve{108,32,186,34,184,185,57,96,126} = 400;
-
-// Transfinite Surface{:};
-// Recombine Surface{:};
-
-
-
 //+
 Point(730) = {x_outlet, 0.5 * cushion_width, 0, 1.0};
 //+
@@ -353,7 +307,7 @@ Spline(263) = {425,779:821};
 //+
 Line(261) = {778, 727};
 //+
-Point(822) = {1.23, -0.0768+0.000465, 0, 1.0};
+Point(822) = {1.26, -0.0768+0.000465, 0, 1.0};
 //+
 Line(262) = {821, 822};
 
@@ -406,15 +360,25 @@ Curve Loop(37) = {128, 260, -264, -263};
 //+
 Plane Surface(37) = {37};
 
-
+// Set default discretisation value
 Transfinite Line{:} = 15;
+
+
+// TE (ultra small surfaces), y-disc
+Transfinite Line{132,44,257,128,264,255,268} = 1;
+
+// TE (ultra small surfaces), x-disc
+Transfinite Line{243,234,262,261,42,43,91,124} = 5;
+//thickness inter-flal-airfoil
+Transfinite Line{217,221,223,152,265,227,256} = 5;
+
 Transfinite Surface{:};
 Recombine Surface{:};
 
-//+
-Extrude {0, 0, 1} {
-  Surface{:}; Layers {1}; Recombine;
-}
+// //+
+// Extrude {0, 0, 1} {
+//   Surface{:}; Layers {1}; Recombine;
+// }
 //+
 Coherence;
 Physical Volume("Fluid", 2000) = {1:29};
@@ -428,4 +392,5 @@ Physical Surface("Side", 2003) = {1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20
 Physical Surface("Airfoil", 2004) = {570,588,896,724,610};
 //+
 Physical Surface("Flap", 2005) = {654,732,878,706};
+
 
