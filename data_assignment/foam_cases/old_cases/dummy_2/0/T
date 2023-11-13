@@ -38,14 +38,12 @@ boundaryField
 
     Airfoil
     {
-        type            fixedValue;
-        value           uniform 1;
+        type            zeroGradient;
     }
 
     Flap
     {
-        type            fixedValue;
-        value           uniform 1;
+        type            zeroGradient;
     }
 }
 
