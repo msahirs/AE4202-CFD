@@ -397,22 +397,22 @@ Transfinite Curve{244,248,-271,252,251,250,247,246} = default+10 Using Progressi
 Transfinite Surface{:};
 Recombine Surface{:};
 
-// //+
-// Extrude {0, 0, 1} {
-//   Surface{:}; Layers {1}; Recombine;
-// }
+//+
+Extrude {0, 0, 1} {
+  Surface{:}; Layers {1}; Recombine;
+}
 
-// Coherence;
-// Physical Volume("Fluid", 2000) = {1:29};
+Coherence;
+Physical Volume("Fluid", 2000) = {1:29};
 
-// Physical Surface("Inlet", 2001) = {292,314,324,346,372,460,486,508,522,548};
-// //+
-// Physical Surface("Outlet", 2002) = {376,790,808,394,412,438,456};
-// //+ 
-// Physical Surface("Side", 2003) = {1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,29:37,293,315,337,359,381,799,821,403,425,447,442,469,491,513,535,557,579,601,755,777,865,711,667,645,623};
-// //+
-// Physical Surface("Airfoil", 2004) = {570,588,896,724,610};
-// //+
-// Physical Surface("Flap", 2005) = {654,732,878,706};
+Physical Surface("Inlet", 2001) = {292,314,324,346,372,460,486,508,522,548};
+//+
+Physical Surface("Outlet", 2002) = {376,790,808,394,412,438,456};
+//+ 
+Physical Surface("Side", 2003) = {1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,29:37,293,315,337,359,381,799,821,403,425,447,442,469,491,513,535,557,579,601,755,777,865,711,667,645,623};
+//+
+Physical Surface("Airfoil", 2004) = {570,588,896,724,610};
+//+
+Physical Surface("Flap", 2005) = {654,732,878,706};
 
 
