@@ -63,7 +63,7 @@ Circle(8) = {649, centre_lead_edge, 650};
 //+
 Point(658) = {0.9436, cushion_width * 0.7, 0, 1.0};
 //+
-Point(668) = {1.26, -0.11-0.0022, 0, 1.0};
+Point(668) = {1.26, -0.11-0.0020, 0, 1.0};
 //+
 Point(669) = {1.26, -0.11-0.00132, 0, 1.0};
 //+
@@ -75,9 +75,9 @@ Line(44) = {669, 668};
 //+
 Point(683) = {0.822, -cushion_width * 0.75, 0, 1.0};
 //+
-Point(689) = {1.2, -cushion_width * 0.6, 0, 1.0};
+Point(689) = {1.2, -0.3, 0, 1.0};
 //+
-Point(690) = {1.26, -cushion_width * 0.6, 0, 1.0};
+Point(690) = {1.26, -0.3, 0, 1.0};
 //+
 Line(91) = {689, 690};
 
@@ -177,9 +177,9 @@ Point(731) = {x_outlet, -0.076335, 0, 1.0};
 //+
 Point(732) = {x_outlet, -0.0768, 0, 1.0};
 //+
-Point(733) = {x_outlet, -0.11, 0, 1.0};
+Point(733) = {x_outlet, -0.11132, 0, 1.0};
 //+
-Point(734) = {x_outlet, -0.12, 0, 1.0};
+Point(734) = {x_outlet, -0.112, 0, 1.0};
 //+
 Point(735) = {x_outlet, -cushion_width * 0.6, 0, 1.0};
 //+
@@ -361,17 +361,39 @@ Curve Loop(37) = {128, 260, -264, -263};
 Plane Surface(37) = {37};
 
 // Set default discretisation value
-Transfinite Line{:} = 15;
+default = 25;
+Transfinite Curve{:} = default;
+Transfinite Curve{-5,100,-178,237,-253,-6,116,-220,117,118,259} = default Using Progression 1.1;
 
+cushion_points = 30;
 
-// TE (ultra small surfaces), y-disc
-Transfinite Line{132,44,257,128,264,255,268} = 1;
+//Frontal arc
+Transfinite Curve{3,8,126} = 40 Using Bump 2;
+
+// Wing TE (ultra small surfaces), y-disc
+Transfinite Curve{128,264,255,268} = 3;
+// Flap TE (ultra small surfaces), y-disc
+Transfinite Curve{132,44,257} = 4;
 
 // TE (ultra small surfaces), x-disc
-Transfinite Line{243,234,262,261,42,43,91,124} = 5;
-//thickness inter-flal-airfoil
-Transfinite Line{217,221,223,152,265,227,256} = 5;
+Transfinite Curve{262,261,42,43} = 10 Using Progression 1.2;
+Transfinite Curve{243,234,91,124} = 10 Using Progression 1.2;
 
+//Set cushion thickness and progression
+Transfinite Curve{-4,-7,-157,218,165,-269,164,258,270,-254,219} = cushion_points Using Progression 1.2;
+Transfinite Curve{221,223} = cushion_points Using Bump 7.5;
+Transfinite Curve{152,217,265,227,256} = cushion_points Using Bump 0.2;
+Transfinite Curve{133,222,224} = 30 Using Bump 0.5;
+
+Transfinite Curve{131,260,263,238,242} = 40 Using Bump 0.25;
+Transfinite Curve{-127,-235,-241} = 40 Using Progression 1.05;
+Transfinite Curve{125,-236,-245} = 40 Using Progression 1.05;
+
+Transfinite Curve{244,248,-271,252,251,250,247,246} = default+10 Using Progression 1.1;
+
+
+
+///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
 Transfinite Surface{:};
 Recombine Surface{:};
 
@@ -379,18 +401,18 @@ Recombine Surface{:};
 // Extrude {0, 0, 1} {
 //   Surface{:}; Layers {1}; Recombine;
 // }
-//+
-Coherence;
-Physical Volume("Fluid", 2000) = {1:29};
 
-Physical Surface("Inlet", 2001) = {292,314,324,346,372,460,486,508,522,548};
-//+
-Physical Surface("Outlet", 2002) = {376,790,808,394,412,438,456};
-//+ 
-Physical Surface("Side", 2003) = {1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,29:37,293,315,337,359,381,799,821,403,425,447,442,469,491,513,535,557,579,601,755,777,865,711,667,645,623};
-//+
-Physical Surface("Airfoil", 2004) = {570,588,896,724,610};
-//+
-Physical Surface("Flap", 2005) = {654,732,878,706};
+// Coherence;
+// Physical Volume("Fluid", 2000) = {1:29};
+
+// Physical Surface("Inlet", 2001) = {292,314,324,346,372,460,486,508,522,548};
+// //+
+// Physical Surface("Outlet", 2002) = {376,790,808,394,412,438,456};
+// //+ 
+// Physical Surface("Side", 2003) = {1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,29:37,293,315,337,359,381,799,821,403,425,447,442,469,491,513,535,557,579,601,755,777,865,711,667,645,623};
+// //+
+// Physical Surface("Airfoil", 2004) = {570,588,896,724,610};
+// //+
+// Physical Surface("Flap", 2005) = {654,732,878,706};
 
 
