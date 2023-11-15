@@ -37,7 +37,7 @@ Point(648) = {x_outlet, y_symm, 0, 1.0};
 
 //  ## Cushion variables ## //
 cushion_width = 0.4;
-cushion_LE_len = 0.1; //must be greater than 0!
+cushion_LE_len = 0.01; //must be greater than 0!
 cushion_TE_len = 1.5; // from 0,0
 centre_lead_edge = 229; //id of of point closest to centre of LE
 
@@ -45,9 +45,9 @@ centre_lead_edge = 229; //id of of point closest to centre of LE
 Circle(3) = {645, centre_lead_edge, 646};
 
 //+ Define cushion points near leading edge
-Point(649) = {-cushion_LE_len, cushion_width, 0, 1.0};
+Point(649) = {-cushion_LE_len, cushion_width*0.8, 0, 1.0};
 //+
-Point(650) = {-cushion_LE_len, -cushion_width, 0, 1.0};
+Point(650) = {-cushion_LE_len, -cushion_width*0.8, 0, 1.0};
 
 //+ Connect lines between leading cushion and inlet
 Line(4) = {649, 280};
@@ -293,13 +293,13 @@ Curve Loop(29) = {217, -129, -152, -130};
 Plane Surface(29) = {29};
 
 //+
-Translate {0, 0.0262, 0} {
+Translate {0, 0.0262 *0.605, 0} {
   Duplicata { Point{558:642:2}; }
 }
 Spline(260) = {426,736:778};
 
 //+
-Translate {0, 0.000465, 0} {
+Translate {0, 0.000465 *0.605, 0} {
   Duplicata { Point{736:778}; }
 }
 Spline(263) = {425,779:821};
@@ -360,15 +360,17 @@ Curve Loop(37) = {128, 260, -264, -263};
 //+
 Plane Surface(37) = {37};
 
+
+
 // Set default discretisation value
-default = 25;
+default = 20;
 Transfinite Curve{:} = default;
 Transfinite Curve{-5,100,-178,237,-253,-6,116,-220,117,118,259} = default Using Progression 1.1;
 
 cushion_points = 30;
 
 //Frontal arc
-Transfinite Curve{3,8,126} = 40 Using Bump 2;
+Transfinite Curve{3,8,126} = 50 Using Bump 1;
 
 // Wing TE (ultra small surfaces), y-disc
 Transfinite Curve{128,264,255,268} = 3;
@@ -376,26 +378,35 @@ Transfinite Curve{128,264,255,268} = 3;
 Transfinite Curve{132,44,257} = 4;
 
 // TE (ultra small surfaces), x-disc
-Transfinite Curve{262,261,42,43} = 10 Using Progression 1.2;
-Transfinite Curve{243,234,91,124} = 10 Using Progression 1.2;
+Transfinite Curve{262,261,42,43} = 10 Using Progression 1.4;
+Transfinite Curve{243,234,91,124} = 10 Using Progression 1.3;
 
 //Set cushion thickness and progression
 Transfinite Curve{-4,-7,-157,218,165,-269,164,258,270,-254,219} = cushion_points Using Progression 1.2;
-Transfinite Curve{221,223} = cushion_points Using Bump 7.5;
-Transfinite Curve{152,217,265,227,256} = cushion_points Using Bump 0.2;
-Transfinite Curve{133,222,224} = 30 Using Bump 0.5;
+Transfinite Curve{221,223} = cushion_points Using Bump 4;
+Transfinite Curve{152,217,265,227,256} = cushion_points Using Bump 0.075;
+Transfinite Curve{222,224} = 50 Using Bump 0.5;
+// Transfinite Curve{-133} = 30 Using Progression 1.1;
+Transfinite Curve{133} = 50 Using Bump 1/10;
 
-Transfinite Curve{131,260,263,238,242} = 40 Using Bump 0.25;
-Transfinite Curve{-127,-235,-241} = 40 Using Progression 1.05;
-Transfinite Curve{125,-236,-245} = 40 Using Progression 1.05;
+Transfinite Curve{131,260,263} = 40 Using Bump 0.1;
+Transfinite Curve{238,242} = 40 Using Bump 0.5;
+Transfinite Curve{-127} = 50 Using Bump 1/20;
+Transfinite Curve{-241,-235} = 50 Using Bump 1/3;
+Transfinite Curve{125} = 50 Using Bump 1/25;
+Transfinite Curve{-236,-245} = 50 Using Bump 1/10;
 
-Transfinite Curve{244,248,-271,252,251,250,247,246} = default+10 Using Progression 1.1;
+Transfinite Curve{244,248,-271,252,251,250,247,246} = default+20 Using Progression 1.2;
 
-
+Transfinite Curve{129,130} = cushion_points Using Bump 0.25;
 
 ///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
 Transfinite Surface{:};
 Recombine Surface{:};
+
+Geometry.ScalingFactor = 0.605;
+
+
 
 //+
 Extrude {0, 0, 1} {
