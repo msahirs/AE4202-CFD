@@ -396,7 +396,7 @@ Transfinite Curve{-241,-235} = 50 Using Bump 1/3;
 Transfinite Curve{125} = 50 Using Bump 1/25;
 Transfinite Curve{-236,-245} = 50 Using Bump 1/10;
 
-Transfinite Curve{244,248,-271,252,251,250,247,246} = default+20 Using Progression 1.2;
+Transfinite Curve{244,248,-271,252,251,250,247,246} = default+10 Using Progression 1.15;
 
 Transfinite Curve{129,130} = cushion_points Using Bump 0.25;
 
