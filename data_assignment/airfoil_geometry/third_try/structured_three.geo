@@ -18,7 +18,7 @@ x_trail = 0.9436;
 x_inlet = -1;
 
 //outlet displacement from trail edge of wing
-x_outlet = 9;
+x_outlet = 7;
 
 // wall distance from centerline of global coordinates
 y_symm = 3;
@@ -181,7 +181,7 @@ Point(733) = {x_outlet, -0.11132, 0, 1.0};
 //+
 Point(734) = {x_outlet, -0.112, 0, 1.0};
 //+
-Point(735) = {x_outlet, -cushion_width * 0.6, 0, 1.0};
+Point(735) = {x_outlet, -0.3, 0, 1.0};
 //+
 Line(247) = {690, 735};
 //+
@@ -312,9 +312,6 @@ Point(822) = {1.26, -0.0768+0.000465, 0, 1.0};
 Line(262) = {821, 822};
 
 
-
-
-
 //+
 Line(264) = {821, 778};
 //+
@@ -396,16 +393,14 @@ Transfinite Curve{-241,-235} = 50 Using Bump 1/3;
 Transfinite Curve{125} = 50 Using Bump 1/25;
 Transfinite Curve{-236,-245} = 50 Using Bump 1/10;
 
-Transfinite Curve{244,248,-271,252,251,250,247,246} = default+10 Using Progression 1.15;
+Transfinite Curve{244,248,-271,252,251,250,247,246} = default*3 Using Progression 1.05;
 
 Transfinite Curve{129,130} = cushion_points Using Bump 0.25;
 
 ///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
 Transfinite Surface{:};
 Recombine Surface{:};
-
 Geometry.ScalingFactor = 0.605;
-
 
 
 //+
