@@ -28,8 +28,9 @@ rm ./system/fvSolution
 rm ./system/controlDict
 cp ./system/second_order/* ./system/
 
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse 
 runApplication $(getApplication)
-
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_fine
 
 ./compute_yPlus.sh
 

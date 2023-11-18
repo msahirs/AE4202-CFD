@@ -120,7 +120,7 @@ functions
         pitchAxis   (0 0 1);
         magUInf     63.49238541549686;
         lRef        1.;
-        Aref        1.;
+        Aref        0.605;
     }
     
     surfaces

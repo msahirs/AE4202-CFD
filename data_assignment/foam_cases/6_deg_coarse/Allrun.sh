@@ -31,7 +31,11 @@ rm ./system/fvSolution
 rm ./system/controlDict
 cp ./system/second_order/* ./system/
 
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse
+
 runParallel $(getApplication)
+
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_fine
 
 runParallel -s reconstruct \
     redistributePar -reconstruct -overwrite

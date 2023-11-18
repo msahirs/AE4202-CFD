@@ -20,7 +20,7 @@ solvers
     {
         solver          GAMG;
         smoother        GaussSeidel;
-        tolerance       1e-7;
+        tolerance       1e-13;
         relTol          0.01;
         minIter         3;
     }
@@ -28,7 +28,6 @@ solvers
     pFinal
     {
         $p;
-        tolerance       1e-13;
         relTol          0;
     }
 
@@ -36,14 +35,13 @@ solvers
     {
         solver          PBiCGStab;
         preconditioner  DILU;
-        tolerance       1e-7;
+        tolerance       1e-13;
         relTol          0.0;
     }
 
     "(rho|U|k|omega|e)Final"
     {
         $U;
-        tolerance       1e-13;
         relTol          0;
     }
 }
