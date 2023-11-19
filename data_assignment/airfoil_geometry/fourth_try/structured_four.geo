@@ -322,13 +322,13 @@ Transfinite Curve{217,152,264,267,269} = 20 Using Bump 1/20;
 Transfinite Curve{221,223} = 20 Using Bump 3;
 Transfinite Curve{129,128} = 50 Using Bump 1/4;
 Transfinite Curve{127} = 40 Using Bump 1/10;
-Transfinite Curve{235} = 40 Using Bump 1;
+Transfinite Curve{235} = 40 Using Bump 1/2;
 Transfinite Curve{241} = 40 Using Bump 2;
 Transfinite Curve{130,260,238} = 30 Using Bump 1/10;
 Transfinite Curve{242} = 30 Using Bump 3;
-Transfinite Curve{124} = 10 Using Progression 1;
+Transfinite Curve{124} = 10 Using Progression 1.3;
 Transfinite Curve{234,263,43,91} = 10 Using Progression 1.3;
-Transfinite Curve{243} = 10 Using Progression 1;
+Transfinite Curve{243} = 10 Using Progression 1.3;
 
 Transfinite Curve{125,-236} = 40 Using Progression 1.05;
 Transfinite Curve{245} = 40 Using Bump 1;
