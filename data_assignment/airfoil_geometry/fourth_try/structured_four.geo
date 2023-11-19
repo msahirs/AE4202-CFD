@@ -1,10 +1,7 @@
 
-Mesh.ToleranceReferenceElement = 1e-8;
-Mesh.AngleToleranceFacetOverlap = 0.001;
-Geometry.Tolerance = 1e-8;
-Geometry.MatchMeshTolerance = 1e-8;
-Include "../input_geometry/wing.geo";
-Include "../input_geometry/flap.geo";
+
+Include "wing.geo";
+Include "flap.geo";
 
 // N. B // Wing Points Definition Point([2... 426])
 // N. B // Flap Points Definition Point([427... 643])
@@ -65,13 +62,7 @@ Point(658) = {0.9436, cushion_width * 0.7, 0, 1.0};
 //+
 Point(668) = {1.26, -0.11-0.0020, 0, 1.0};
 //+
-Point(669) = {1.26, -0.11-0.00132, 0, 1.0};
-//+
-Line(42) = {643, 669};
-//+
 Line(43) = {427, 668};
-//+
-Line(44) = {669, 668};
 //+
 Point(683) = {0.822, -cushion_width * 0.75, 0, 1.0};
 //+
@@ -102,14 +93,12 @@ Line(118) = {690, 702};
 Line(124) = {704, 702};
 //+
 //+
-Split Curve {1} Point {280, 184, 426, 425,47};
+Split Curve {1} Point {280, 184, 426,47};
 //+
-Split Curve {2} Point {557, 643, 427,506};
+Split Curve {2} Point {557, 427,506};
 //+
 Line(152) = {557, 426};
 
-//+
-Line(157) = {658, 425};
 
 //+
 Line(164) = {668, 690};
@@ -144,8 +133,7 @@ Line(223) = {701, 726};
 Line(224) = {726, 704};
 //+
 Point(727) = {1.26, -0.0768, 0, 1.0};
-//+
-Line(227) = {727, 669};
+
 //+
 Point(729) = {1.36, 0.5*cushion_width, 0, 1.0};
 //+
@@ -173,11 +161,7 @@ Line(246) = {702, 647};
 //+
 Point(730) = {x_outlet, 0.5 * cushion_width, 0, 1.0};
 //+
-Point(731) = {x_outlet, -0.076335, 0, 1.0};
-//+
 Point(732) = {x_outlet, -0.0768, 0, 1.0};
-//+
-Point(733) = {x_outlet, -0.11132, 0, 1.0};
 //+
 Point(734) = {x_outlet, -0.112, 0, 1.0};
 //+
@@ -189,29 +173,44 @@ Line(248) = {729, 730};
 //+
 Line(250) = {668, 734};
 //+
-Line(251) = {669, 733};
-//+
 Line(252) = {727, 732};
 //+
 Line(253) = {648, 730};
 //+
-Line(254) = {730, 731};
-//+
-Line(255) = {731, 732};
-//+
-Line(256) = {732, 733};
-//+
-Line(257) = {733, 734};
-//+
 Line(258) = {734, 735};
 //+
 Line(259) = {735, 647};
+
+
+//+
+Translate {0, 0.0265175 * 0.605, 0} {
+  Duplicata { Point{558:642:2, 427}; }
+}
+Line(260) = {426,736:779};
+
+//+
+Line(262) = {658, 426};
+//+
+Line(263) = {779, 727};
+//+
+Line(264) = {779, 427};
+//+
+Line(265) = {779, 709};
+//+
+Line(266) = {727, 729};
+//+
+Line(267) = {668, 727};
+//+
+Line(268) = {730, 732};
+//+
+Line(269) = {732, 734};
+
 //+
 Curve Loop(1) = {5, 8, -6, -3};
 //+
 Plane Surface(1) = {1};
 //+
-Curve Loop(2) = {5, 235, 100, -241};
+Curve Loop(2) = {241, -100, -235, -5};
 //+
 Plane Surface(2) = {2};
 //+
@@ -219,188 +218,127 @@ Curve Loop(3) = {242, 178, -238, 100};
 //+
 Plane Surface(3) = {3};
 //+
-Curve Loop(4) = {243, -237, -234, -178};
+Curve Loop(4) = {178, 234, 237, -243};
 //+
 Plane Surface(4) = {4};
 //+
-Curve Loop(5) = {237, 244, 253, -248};
+Curve Loop(5) = {244, 253, -248, 237};
 //+
 Plane Surface(5) = {5};
 //+
-Curve Loop(8) = {252, 256, -251, -227};
+Curve Loop(6) = {248, 268, -252, 266};
+//+
+Plane Surface(6) = {6};
+//+
+Curve Loop(7) = {252, 269, -250, 267};
+//+
+Plane Surface(7) = {7};
+//+
+Curve Loop(8) = {266, -234, -265, 263};
 //+
 Plane Surface(8) = {8};
 //+
-Curve Loop(9) = {257, -250, -44, 251};
+Curve Loop(9) = {238, -265, -260, -262};
 //+
 Plane Surface(9) = {9};
 //+
-Curve Loop(10) = {250, 258, -247, -164};
+Curve Loop(10) = {267, -263, 264, 43};
 //+
 Plane Surface(10) = {10};
 //+
-Curve Loop(11) = {259, -246, -118, 247};
+Curve Loop(11) = {164, -91, -165, 43};
 //+
 Plane Surface(11) = {11};
 //+
-Curve Loop(12) = {91, 118, -124, -117};
+Curve Loop(12) = {250, 258, -247, -164};
 //+
 Plane Surface(12) = {12};
 //+
-Curve Loop(13) = {222, 117, -224, 220};
+Curve Loop(13) = {259, -246, -118, 247};
 //+
 Plane Surface(13) = {13};
 //+
-Curve Loop(14) = {223, 220, -221, 116};
+Curve Loop(14) = {165, -222, -219, -131};
 //+
 Plane Surface(14) = {14};
 //+
-Curve Loop(15) = {116, -245, 6, 236};
+Curve Loop(15) = {222, 117, -224, 220};
 //+
 Plane Surface(15) = {15};
 //+
-Curve Loop(16) = {4, -126, -7, -8};
+Curve Loop(16) = {91, 118, -124, -117};
 //+
 Plane Surface(16) = {16};
 //+
-Curve Loop(17) = {127, -157, -235, 4};
+Curve Loop(17) = {223, 220, -221, 116};
 //+
 Plane Surface(17) = {17};
 //+
-Curve Loop(18) = {125, -7, 236, -218};
+Curve Loop(18) = {219, -221, -218, -217};
 //+
 Plane Surface(18) = {18};
 //+
-Curve Loop(19) = {217, 218, 221, -219};
+Curve Loop(19) = {130, -264, -260, -152};
 //+
 Plane Surface(19) = {19};
 //+
-Curve Loop(20) = {133, 219, 222, -165};
+Curve Loop(20) = {129, 152, 128, -217};
 //+
 Plane Surface(20) = {20};
 //+
-Curve Loop(21) = {164, -91, -165, 43};
+Curve Loop(21) = {125, -7, 236, -218};
 //+
 Plane Surface(21) = {21};
 //+
-Curve Loop(22) = {44, -43, -132, 42};
+Curve Loop(22) = {4, 127, -262, -235};
 //+
 Plane Surface(22) = {22};
 //+
+Curve Loop(23) = {8, 7, 126, -4};
 //+
-Curve Loop(29) = {217, -129, -152, -130};
+Plane Surface(23) = {23};
 //+
-Plane Surface(29) = {29};
+Curve Loop(24) = {236, 116, -245, 6};
+//+
+Plane Surface(24) = {24};
 
-//+
-Translate {0, 0.0262 *0.605, 0} {
-  Duplicata { Point{558:642:2}; }
-}
-Spline(260) = {426,736:778};
-
-//+
-Translate {0, 0.000465 *0.605, 0} {
-  Duplicata { Point{736:778}; }
-}
-Spline(263) = {425,779:821};
-
-//+
-Line(261) = {778, 727};
-//+
-Point(822) = {1.26, -0.0768+0.000465, 0, 1.0};
-//+
-Line(262) = {821, 822};
-
-
-//+
-Line(264) = {821, 778};
-//+
-Line(265) = {778, 643};
-//+
-Line(268) = {822, 727};
-//+
-Line(269) = {709, 821};
-//+
-Line(270) = {822, 729};
-//+
-Line(271) = {731, 822};
-//+
-Curve Loop(30) = {238, 269, -263, -157};
-//+
-Plane Surface(30) = {30};
-//+
-Curve Loop(31) = {234, -270, -262, -269};
-//+
-Plane Surface(31) = {31};
-//+
-Curve Loop(32) = {248, 254, 271, 270};
-//+
-Plane Surface(32) = {32};
-//+
-Curve Loop(33) = {255, -252, -268, -271};
-//+
-Plane Surface(33) = {33};
-//+
-Curve Loop(34) = {268, -261, -264, 262};
-//+
-Plane Surface(34) = {34};
-//+
-Curve Loop(35) = {261, 227, -42, -265};
-//+
-Plane Surface(35) = {35};
-//+
-Curve Loop(36) = {265, -131, 152, 260};
-//+
-Plane Surface(36) = {36};
-//+
-Curve Loop(37) = {128, 260, -264, -263};
-//+
-Plane Surface(37) = {37};
-
-
-
+Geometry.ScalingFactor = 0.605;
 // Set default discretisation value
-default = 20;
+
+default = 30;
 Transfinite Curve{:} = default;
-Transfinite Curve{-5,100,-178,237,-253,-6,116,-220,117,118,259} = default Using Progression 1.1;
 
 cushion_points = 30;
 
 //Frontal arc
-Transfinite Curve{3,8,126} = 50 Using Bump 1;
-
-// Wing TE (ultra small surfaces), y-disc
-Transfinite Curve{128,264,255,268} = 3;
-// Flap TE (ultra small surfaces), y-disc
-Transfinite Curve{132,44,257} = 4;
-
-// TE (ultra small surfaces), x-disc
-Transfinite Curve{262,261,42,43} = 10 Using Progression 1.4;
-Transfinite Curve{243,234,91,124} = 10 Using Progression 1.3;
+Transfinite Curve{3,8,126} = 50 Using Bump 2;
 
 //Set cushion thickness and progression
-Transfinite Curve{-4,-7,-157,218,165,-269,164,258,270,-254,219} = cushion_points Using Progression 1.2;
-Transfinite Curve{221,223} = cushion_points Using Bump 4;
-Transfinite Curve{152,217,265,227,256} = cushion_points Using Bump 0.075;
-Transfinite Curve{222,224} = 50 Using Bump 0.5;
-// Transfinite Curve{-133} = 30 Using Progression 1.1;
-Transfinite Curve{133} = 50 Using Bump 1/10;
+Transfinite Curve{-4,-7,-262,265,266,-268,217,218,219,165,164,258} = cushion_points Using Progression 1.25;
+Transfinite Curve{131} = 30 Using Bump 1/15;
+Transfinite Curve{222} = 30 Using Bump 1/5;
+Transfinite Curve{224} = 30 Using Bump 1;
+Transfinite Curve{217,152,264,267,269} = 20 Using Bump 1/20;
+Transfinite Curve{221,223} = 20 Using Bump 3;
+Transfinite Curve{129,128} = 50 Using Bump 1/4;
+Transfinite Curve{127,235} = 40 Using Bump 1/10;
+Transfinite Curve{241} = 40 Using Bump 2;
+Transfinite Curve{130,260,238} = 30 Using Bump 1/10;
+Transfinite Curve{242} = 30 Using Bump 3;
+Transfinite Curve{124} = 10 Using Progression 1;
+Transfinite Curve{234,263,43,91} = 10 Using Progression 1.3;
+Transfinite Curve{243} = 10 Using Progression 1;
 
-Transfinite Curve{131,260,263} = 40 Using Bump 0.1;
-Transfinite Curve{238,242} = 40 Using Bump 0.5;
-Transfinite Curve{-127} = 50 Using Bump 1/20;
-Transfinite Curve{-241,-235} = 50 Using Bump 1/3;
-Transfinite Curve{125} = 50 Using Bump 1/25;
-Transfinite Curve{-236,-245} = 50 Using Bump 1/10;
+Transfinite Curve{125,-236} = 40 Using Progression 1.05;
+Transfinite Curve{245} = 40 Using Bump 1;
 
-Transfinite Curve{244,248,-271,252,251,250,247,246} = default*3 Using Progression 1.05;
+Transfinite Curve{244,248,252,250,247,246} = 40 Using Progression 1.07;
 
-Transfinite Curve{129,130} = cushion_points Using Bump 0.25;
 
-///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
+// ///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
 Transfinite Surface{:};
 Recombine Surface{:};
-Geometry.ScalingFactor = 0.605;
+
 
 
 //+
@@ -409,16 +347,12 @@ Extrude {0, 0, 1} {
 }
 
 Coherence;
-Physical Volume("Fluid", 2000) = {1:29};
+Physical Volume("Fluid", 2000) = {1:24};
 
-Physical Surface("Inlet", 2001) = {292,314,324,346,372,460,486,508,522,548};
-//+
-Physical Surface("Outlet", 2002) = {376,790,808,394,412,438,456};
+Physical Surface("Inlet", 2001) = {366,356,322,300,290,792,630,594,616,546};
+// +
+Physical Surface("Outlet", 2002) = {370,392,414,524,542};
 //+ 
-Physical Surface("Side", 2003) = {1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,29:37,293,315,337,359,381,799,821,843,403,425,447,442,469,491,513,535,557,579,601,755,777,865,711,667,645,623,887,689,733,909};
+Physical Surface("Side", 2003) = {291,1,2,313,3,335,357,4,5,379,6,401,7,423,12,533,13,555,8,445,10,489,11,511,14,577,16,621,15,599,18,665,20,709,19,687,9,467,21,731,23,775,22,753,17,643,24,797};
 //+
-Physical Surface("Airfoil", 2004) = {570,588,896,724,610};
-//+
-Physical Surface("Flap", 2005) = {654,732,878,706};
-
-
+Physical Surface("Airfoil", 2004) = {770,744,704,718};
