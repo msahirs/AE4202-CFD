@@ -364,10 +364,10 @@ default = 20;
 Transfinite Curve{:} = default;
 Transfinite Curve{-5,100,-178,237,-253,-6,116,-220,117,118,259} = default*1.5 Using Progression 1.025;
 
-cushion_points = 15;
+cushion_points = 20;
 
 //Frontal arc
-Transfinite Curve{3,8,126} = 50 Using Bump 1;
+Transfinite Curve{3,8,126} = 50 Using Bump 0.5;
 
 // Wing TE (ultra small surfaces), y-disc
 Transfinite Curve{128,264,255,268} = 2;
@@ -380,7 +380,7 @@ Transfinite Curve{243,234,91,124} = 10 Using Progression 1.3;
 
 //Set cushion thickness and progression
 Transfinite Curve{-4,-7,-157,218,165,-269,164,258,270,-254,219} = cushion_points Using Progression 1.2;
-Transfinite Curve{221,223} = cushion_points Using Bump 4;
+Transfinite Curve{221,223} = cushion_points Using Bump 2;
 Transfinite Curve{152,217,265,227,256} = cushion_points Using Bump 0.075;
 Transfinite Curve{222,224} = 50 Using Bump 0.5;
 // Transfinite Curve{-133} = 30 Using Progression 1.1;

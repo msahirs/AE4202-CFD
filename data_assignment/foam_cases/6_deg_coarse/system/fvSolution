@@ -62,11 +62,11 @@ SIMPLE
 
 PIMPLE
 {
-    nCorrectors              2;
+    nCorrectors              3;
 //     nNonOrthogonalCorrectors 3; // non-ortho 70 - 85
     nNonOrthogonalCorrectors 2; // non-ortho 60 - 70
 //     nNonOrthogonalCorrectors 1; // non-ortho <60
-    nOuterCorrectors         1;
+    nOuterCorrectors         2;
     pMinFactor      0.1;
     pMaxFactor      2;
 }
@@ -75,8 +75,8 @@ relaxationFactors
 {
     fields
     {
-        p               0.3;
-//         rho             0.01;
+        p               0.7;
+        rho             0.35;
     }
     equations
     {
