@@ -321,7 +321,8 @@ Transfinite Curve{224} = 30 Using Bump 1;
 Transfinite Curve{217,152,264,267,269} = 20 Using Bump 1/20;
 Transfinite Curve{221,223} = 20 Using Bump 3;
 Transfinite Curve{129,128} = 50 Using Bump 1/4;
-Transfinite Curve{127,235} = 40 Using Bump 1/10;
+Transfinite Curve{127} = 40 Using Bump 1/10;
+Transfinite Curve{235} = 40 Using Bump 1;
 Transfinite Curve{241} = 40 Using Bump 2;
 Transfinite Curve{130,260,238} = 30 Using Bump 1/10;
 Transfinite Curve{242} = 30 Using Bump 3;
@@ -356,3 +357,4 @@ Physical Surface("Outlet", 2002) = {370,392,414,524,542};
 Physical Surface("Side", 2003) = {291,1,2,313,3,335,357,4,5,379,6,401,7,423,12,533,13,555,8,445,10,489,11,511,14,577,16,621,15,599,18,665,20,709,19,687,9,467,21,731,23,775,22,753,17,643,24,797};
 //+
 Physical Surface("Airfoil", 2004) = {770,744,704,718};
+Physical Surface("Flap", 2005) = {674,576,696};
