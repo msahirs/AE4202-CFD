@@ -43,10 +43,15 @@ def plot_cfd_data(fig, wing_ax, flap_ax, wing_data, flap_data):
     
     
 def process_foam_surface_file(file_path, n_to_avg, return_x=False):
-    press = np.genfromtxt(fname=file_path, skip_header=2, usecols=(3))
-    if return_x:
-        return np.genfromtxt(fname=file_path, skip_header=2, usecols=(0)), press/n_to_avg
-    return press/n_to_avg
+    press = np.genfromtxt(fname=file_path, skip_header=2, usecols=(3))/n_to_avg
+    if return_x and "flap" in file_path:
+        flap_x = np.genfromtxt(fname=file_path, skip_header=2, usecols=(0))
+        flap_x -= min(flap_x)
+        return flap_x / (max(flap_x)/0.3167), press
+    elif return_x:
+        wing_x = np.genfromtxt(fname=file_path, skip_header=2, usecols=(0))
+        return wing_x / (max(wing_x)/0.9286), press
+    return press
 
 
 def get_cfd_data(surface_dir, n_steps_to_avg, flap_file, wing_file, p_inf, v_inf, rho_inf):
@@ -56,20 +61,20 @@ def get_cfd_data(surface_dir, n_steps_to_avg, flap_file, wing_file, p_inf, v_inf
     flap_x, flap_press = process_foam_surface_file(surface_dir + dirs[0] + "/" + flap_file, n_steps_to_avg, True)
     wing_x, wing_press = process_foam_surface_file(surface_dir + dirs[0] + "/" + wing_file,
                                                          n_steps_to_avg, True)
-
+    print(dirs)
     for directory in dirs[1:]:
-        flap_press += process_foam_surface_file(surface_dir + directory + "/" + flap_file, n_steps_to_avg) / n_steps_to_avg
-        wing_press += process_foam_surface_file(surface_dir + directory + "/" + wing_file, n_steps_to_avg) / n_steps_to_avg
+        flap_press += process_foam_surface_file(surface_dir + directory + "/" + flap_file, n_steps_to_avg)
+        wing_press += process_foam_surface_file(surface_dir + directory + "/" + wing_file, n_steps_to_avg)
 
     wing_press = (wing_press - p_inf) / (0.5 * rho_inf * v_inf * v_inf)
     flap_press = (flap_press - p_inf) / (0.5 * rho_inf * v_inf * v_inf)
-    return np.vstack(wing_x, wing_press), np.vstack(flap_x, flap_press)
+    return np.vstack((wing_x, wing_press)), np.vstack((flap_x, flap_press))
 
 
 n_avg_steps = 200
 press_dir = "./postProcessing/surfaces/"
 
-wing_data, flap_data = get_cfd_data(press_dir, n_avg_steps, "p_flap.raw", "p_wing.raw", 101325, 0.185 * (287*293*1.4)**0.5, 101325/287/293)
+wing_data, flap_data = get_cfd_data(press_dir, n_avg_steps, "p_flap.raw", "p_airfoil.raw", 101325, 0.185 * (287*293*1.4)**0.5, 101325/287/293)
 fig, wing_ax, flap_ax = plot_reference_data()
 plot_cfd_data(fig, wing_ax, flap_ax, wing_data, flap_data)
 

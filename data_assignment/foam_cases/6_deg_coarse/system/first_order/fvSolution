@@ -71,14 +71,15 @@ PIMPLE
     nOuterCorrectors         1;
     pMinFactor      0.1;
     pMaxFactor      2;
+//     momentumPredictor yes;
 }
 
 relaxationFactors
 {
     fields
     {
-        p               0.3;
-//         rho             0.01;
+        p               0.7;
+        rho             0.7;
     }
     equations
     {
