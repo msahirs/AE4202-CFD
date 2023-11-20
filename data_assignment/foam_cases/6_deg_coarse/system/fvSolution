@@ -42,6 +42,7 @@ solvers
     "(rho|U|k|omega|e)Final"
     {
         $U;
+        tolerance       1e-13;
         relTol          0;
     }
 }
@@ -66,7 +67,7 @@ PIMPLE
 //     nNonOrthogonalCorrectors 3; // non-ortho 70 - 85
     nNonOrthogonalCorrectors 2; // non-ortho 60 - 70
 //     nNonOrthogonalCorrectors 1; // non-ortho <60
-    nOuterCorrectors         2;
+    nOuterCorrectors         10;
     pMinFactor      0.1;
     pMaxFactor      2;
 }
@@ -75,8 +76,8 @@ relaxationFactors
 {
     fields
     {
-        p               0.7;
-        rho             0.35;
+        p               0.25;
+        rho             0.1;
     }
     equations
     {
