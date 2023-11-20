@@ -24,6 +24,15 @@ runParallel -s decompose \
 
 runParallel $(getApplication)
 
+rm ./system/fvSchemes
+rm ./system/fvSolution
+rm ./system/controlDict
+cp ./system/first_order_continue/* ./system/
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse_start
+
+runParallel $(getApplication)
+
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse_continue
 # move new fvSchemes, fvSolution, controlDict
 echo "moving in second order fvSchemes, fvSolution and controlDict"
 rm ./system/fvSchemes

@@ -18,7 +18,7 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-internalField   uniform 10;
+internalField   uniform 1.29;
 
 boundaryField
 {
@@ -29,13 +29,13 @@ boundaryField
     Inlet
     {
         type            inletOutlet;
-        inletValue      uniform 10;
-        value           uniform 10;
+        inletValue      uniform 1.29;
+        value           uniform 1.29;
     }
     Airfoil
     {
         type            omegaWallFunction;
-        value           uniform 10;
+        value           uniform 1.29;
     }
     Outlet
     {
@@ -44,7 +44,7 @@ boundaryField
     Flap
     {
         type            omegaWallFunction;
-        value           uniform 10;
+        value           uniform 1.29;
     }
 }
 

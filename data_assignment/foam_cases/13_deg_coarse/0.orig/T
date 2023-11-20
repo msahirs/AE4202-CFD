@@ -28,8 +28,9 @@ boundaryField
     }
     Inlet
     {
-        type            fixedValue;
-        value           uniform 293;
+        type            totalTemperature;
+        T0              uniform 295.01;
+        gamma           1.4;
     }
     Airfoil
     {

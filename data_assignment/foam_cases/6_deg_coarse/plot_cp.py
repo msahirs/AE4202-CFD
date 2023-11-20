@@ -1,7 +1,7 @@
-import matplotlib.pyplot as plt
 import os
+import sys
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 def plot_reference_data():
     path = "../../reference_experimental_data/"
@@ -10,7 +10,7 @@ def plot_reference_data():
         flap_file = path + "cp_flap_13.dat"
         wing_file = path + "cp_wing_13.dat"
         angle = 13
-    elif "6deg" in current:
+    elif "6_deg" in current:
         flap_file = path + "cp_flap_6.dat"
         wing_file = path + "cp_wing_6.dat"
         angle = 6
@@ -57,7 +57,11 @@ def process_foam_surface_file(file_path, n_to_avg, return_x=False):
 def get_cfd_data(surface_dir, n_steps_to_avg, flap_file, wing_file, p_inf, v_inf, rho_inf):
     dirs = [float(i) for i in os.listdir(surface_dir)]
     dirs.sort()
-    dirs = [str(i) for i in dirs[-n_steps_to_avg:]]
+    try:
+        dirs = [str(i) for i in dirs[-n_steps_to_avg:]]
+    except IndexError:
+        print(f"Trying to average over too many values ({n_steps_to_avg}, defaulting to 200")
+        dirs = [str(i) for i in dirs[-n_steps_to_avg:]]
     flap_x, flap_press = process_foam_surface_file(surface_dir + dirs[0] + "/" + flap_file, n_steps_to_avg, True)
     wing_x, wing_press = process_foam_surface_file(surface_dir + dirs[0] + "/" + wing_file,
                                                          n_steps_to_avg, True)
@@ -71,12 +75,29 @@ def get_cfd_data(surface_dir, n_steps_to_avg, flap_file, wing_file, p_inf, v_inf
     return np.vstack((wing_x, wing_press)), np.vstack((flap_x, flap_press))
 
 
-n_avg_steps = 200
+n_avg_steps = 5000
 press_dir = "./postProcessing/surfaces/"
+
+if "-h" in sys.argv or "--help" in sys.argv:
+    print("-h, --help for help")
+    print(f"-s to save the plot. Does not show plot")
+    print(f"add an arbitraty integer to average over that many timesteps. Default is {n_steps} steps. The first integer provided is used.")
+    exit()
+    
+for i in sys.argv:
+    try: 
+        int(i)
+        n_avg_steps = int(i)
+        print(f"using {n_steps} steps to average")
+    except:
+        pass
 
 wing_data, flap_data = get_cfd_data(press_dir, n_avg_steps, "p_flap.raw", "p_airfoil.raw", 101325, 0.185 * (287*293*1.4)**0.5, 101325/287/293)
 fig, wing_ax, flap_ax = plot_reference_data()
 plot_cfd_data(fig, wing_ax, flap_ax, wing_data, flap_data)
 
+if "-s" in sys.argv:
+    plt.savefig("cp_plot.png")
+    exit()
 plt.show()
 

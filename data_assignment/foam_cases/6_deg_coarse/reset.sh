@@ -19,7 +19,7 @@ echo "Resetting fvSchemes, fvSolution and controlDict"
 rm ./system/fvSchemes
 rm ./system/fvSolution
 rm ./system/controlDict
-cp ./system/first_order/* ./system/
+cp ./system/first_order_start/* ./system/
 
 echo "Restoring 0"
 restore0Dir

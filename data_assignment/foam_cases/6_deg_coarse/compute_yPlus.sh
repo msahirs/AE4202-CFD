@@ -1,1 +1,1 @@
-rhoPimpleFoam -postProcess -latestTime -func yPlus
+rhoPimpleFoam -postProcess -func yPlus

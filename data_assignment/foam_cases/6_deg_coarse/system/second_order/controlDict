@@ -35,7 +35,7 @@ maxCo 0.5;
  
 writeControl    adjustableRunTime;
  
-writeInterval   0.0025;
+writeInterval   0.005;
  
 purgeWrite      0;
  
@@ -53,6 +53,7 @@ runTimeModifiable true;
  
 functions
 {
+    #includeFunc solverInfo
     fieldAverage1
     {
         type            fieldAverage;
@@ -106,12 +107,12 @@ functions
 
         CofR        (0 0 0);
         // 6 deg
-//         liftDir     (-0.1045284633 0.99452189 0);
-//         dragDir     (0.99452189 0.1045284633 0);
+        liftDir     (-0.1045284633 0.99452189 0);
+        dragDir     (0.99452189 0.1045284633 0);
         
         // 13 deg
-        liftDir     (-0.2266513074 0.9739759673 0);
-        dragDir     (0.9739759673 0.2266513074 0);
+//         liftDir     (-0.2266513074 0.9739759673 0);
+//         dragDir     (0.9739759673 0.2266513074 0);
         
         // 0 deg
 //         liftDir     (0 1 0);
