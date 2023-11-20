@@ -352,8 +352,6 @@ Transfinite Curve{244,248,252,250,247,246} = 40 Using Progression 1.075;
 Transfinite Surface{:};
 Recombine Surface{:};
 
-
-
 //+
 Extrude {0, 0, 1} {
   Surface{:}; Layers {1}; Recombine;
