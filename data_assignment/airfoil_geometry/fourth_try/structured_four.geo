@@ -58,13 +58,13 @@ Line(7) = {650, 184};
 //+ Add LE cushion Arc
 Circle(8) = {649, centre_lead_edge, 650};
 //+
-Point(658) = {0.9436, cushion_width * 0.7, 0, 1.0};
+Point(658) = {0.9936, cushion_width * 0.7, 0, 1.0};
 //+
 Point(668) = {1.26, -0.11-0.0020, 0, 1.0};
 //+
 Line(43) = {427, 668};
 //+
-Point(683) = {0.822, -cushion_width * 0.75, 0, 1.0};
+Point(683) = {0.822, -cushion_width * 0.65, 0, 1.0};
 //+
 Point(689) = {1.2, -0.3, 0, 1.0};
 //+
@@ -72,7 +72,7 @@ Point(690) = {1.26, -0.3, 0, 1.0};
 //+
 Line(91) = {689, 690};
 
-Point(697) = {0.9436, y_symm, 0, 1.0};
+Point(697) = {1.3436, y_symm, 0, 1.0};
 //+
 Point(698) = {2, y_symm, 0, 1.0};
 //+
@@ -116,7 +116,7 @@ Line(217) = {506, 47};
 //+
 Line(218) = {47, 683};
 //+
-Point(725) = {0.89, -0.3, 0, 1.0};
+Point(725) = {0.89, -0.27, 0, 1.0};
 //+
 Line(219) = {506, 725};
 //+
@@ -305,7 +305,7 @@ Plane Surface(24) = {24};
 Geometry.ScalingFactor = 0.605;
 // Set default discretisation value
 
-default = 35;
+default = 30;
 Transfinite Curve{:} = default;
 
 cushion_points = 25;
@@ -315,15 +315,21 @@ Transfinite Curve{3} = 50 Using Bump 1;
 Transfinite Curve{8,126} = 50 Using Bump 2;
 
 //Set cushion thickness and progression
-Transfinite Curve{-4,-7,217,218,219,164} = cushion_points Using Progression 1.15;
-Transfinite Curve{265,266,-268,258,-262} = cushion_points Using Progression 1.2;
+
+Transfinite Curve{-253,259} = default Using Progression 1.01;
+
+Transfinite Curve{-4,-7,217,164} = cushion_points Using Progression 1.25;
+Transfinite Curve{218,219} = cushion_points Using Progression 1.1;
+Transfinite Curve{-262} = cushion_points Using Progression 1.25;
+Transfinite Curve{258} = cushion_points Using Progression 1.15;
+Transfinite Curve{265,266,-268} = cushion_points Using Progression 1.17;
 Transfinite Curve{165,164} = cushion_points Using Progression 1.1;
-Transfinite Curve{131} = 30 Using Bump 1/5;
+Transfinite Curve{131} = 30 Using Bump 1/10;
 Transfinite Curve{222} = 30 Using Bump 1/5;
 Transfinite Curve{224} = 30 Using Bump 1;
-Transfinite Curve{217,152} = 20 Using Bump 1/4;
+Transfinite Curve{217,152} = 20 Using Bump 1/15;
 Transfinite Curve{264,267,269} = 20 Using Bump 1;
-Transfinite Curve{221,223} = 20 Using Bump 4;
+Transfinite Curve{221,223} = 20 Using Bump 3;
 Transfinite Curve{129,-128} = 50 Using Progression 1.01;
 Transfinite Curve{-127} = 35 Using Progression 1.02;
 Transfinite Curve{-235} = 35 Using Progression 1.05;
@@ -348,19 +354,19 @@ Recombine Surface{:};
 
 
 
-//+
-Extrude {0, 0, 1} {
-  Surface{:}; Layers {1}; Recombine;
-}
+// //+
+// Extrude {0, 0, 1} {
+//   Surface{:}; Layers {1}; Recombine;
+// }
 
-Coherence;
-Physical Volume("Fluid", 2000) = {1:24};
+// Coherence;
+// Physical Volume("Fluid", 2000) = {1:24};
 
-Physical Surface("Inlet", 2001) = {366,356,322,300,290,792,630,594,616,546};
-// +
-Physical Surface("Outlet", 2002) = {370,392,414,524,542};
-//+ 
-Physical Surface("Side", 2003) = {291,1,2,313,3,335,357,4,5,379,6,401,7,423,12,533,13,555,8,445,10,489,11,511,14,577,16,621,15,599,18,665,20,709,19,687,9,467,21,731,23,775,22,753,17,643,24,797};
-//+
-Physical Surface("Airfoil", 2004) = {770,744,704,718};
-Physical Surface("Flap", 2005) = {674,576,696};
+// Physical Surface("Inlet", 2001) = {366,356,322,300,290,792,630,594,616,546};
+// // +
+// Physical Surface("Outlet", 2002) = {370,392,414,524,542};
+// //+ 
+// Physical Surface("Side", 2003) = {291,1,2,313,3,335,357,4,5,379,6,401,7,423,12,533,13,555,8,445,10,489,11,511,14,577,16,621,15,599,18,665,20,709,19,687,9,467,21,731,23,775,22,753,17,643,24,797};
+// //+
+// Physical Surface("Airfoil", 2004) = {770,744,704,718};
+// Physical Surface("Flap", 2005) = {674,576,696};
