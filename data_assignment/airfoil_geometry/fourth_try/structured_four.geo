@@ -12,10 +12,10 @@ Include "flap.geo";
 x_trail = 0.9436;
 
 //inlet displacement from tip without flap
-x_inlet = -1;
+x_inlet = -0.5;
 
 //outlet displacement from trail edge of wing
-x_outlet = 7;
+x_outlet = 6;
 
 // wall distance from centerline of global coordinates
 y_symm = 3;
@@ -74,7 +74,7 @@ Line(91) = {689, 690};
 
 Point(697) = {0.9436, y_symm, 0, 1.0};
 //+
-Point(698) = {1.39, y_symm, 0, 1.0};
+Point(698) = {2, y_symm, 0, 1.0};
 //+
 Line(100) = {658, 697};
 //+
@@ -106,10 +106,10 @@ Line(164) = {668, 690};
 Line(165) = {427, 689};
 
 //+
-Point(709) = {1.3, 0.5 * cushion_width, 0, 1.0};
+Point(709) = {1.3, 0.4 * cushion_width, 0, 1.0};
 
 //+
-Point(711) = {1.35, y_symm, 0, 1.0};
+Point(711) = {1.94, y_symm, 0, 1.0};
 //+
 Line(178) = {711, 709};
 Line(217) = {506, 47};
@@ -135,7 +135,7 @@ Line(224) = {726, 704};
 Point(727) = {1.26, -0.0768, 0, 1.0};
 
 //+
-Point(729) = {1.36, 0.5*cushion_width, 0, 1.0};
+Point(729) = {1.36, 0.4*cushion_width, 0, 1.0};
 //+
 Line(234) = {709, 729};
 //+
@@ -159,7 +159,7 @@ Line(245) = {646, 701};
 //+
 Line(246) = {702, 647};
 //+
-Point(730) = {x_outlet, 0.5 * cushion_width, 0, 1.0};
+Point(730) = {x_outlet, 0.4 * cushion_width, 0, 1.0};
 //+
 Point(732) = {x_outlet, -0.0768, 0, 1.0};
 //+
@@ -305,36 +305,40 @@ Plane Surface(24) = {24};
 Geometry.ScalingFactor = 0.605;
 // Set default discretisation value
 
-default = 30;
+default = 35;
 Transfinite Curve{:} = default;
 
-cushion_points = 30;
+cushion_points = 25;
 
 //Frontal arc
-Transfinite Curve{3,8,126} = 50 Using Bump 2;
+Transfinite Curve{3} = 50 Using Bump 1;
+Transfinite Curve{8,126} = 50 Using Bump 2;
 
 //Set cushion thickness and progression
-Transfinite Curve{-4,-7,-262,265,266,-268,217,218,219,165,164,258} = cushion_points Using Progression 1.25;
-Transfinite Curve{131} = 30 Using Bump 1/15;
+Transfinite Curve{-4,-7,217,218,219,164} = cushion_points Using Progression 1.15;
+Transfinite Curve{265,266,164,-268,258,165,-262} = cushion_points Using Progression 1.2;
+Transfinite Curve{131} = 30 Using Bump 1/5;
 Transfinite Curve{222} = 30 Using Bump 1/5;
 Transfinite Curve{224} = 30 Using Bump 1;
-Transfinite Curve{217,152,264,267,269} = 20 Using Bump 1/20;
-Transfinite Curve{221,223} = 20 Using Bump 3;
-Transfinite Curve{129,128} = 50 Using Bump 1/4;
-Transfinite Curve{127} = 40 Using Bump 1/10;
-Transfinite Curve{235} = 40 Using Bump 1/2;
-Transfinite Curve{241} = 40 Using Bump 2;
-Transfinite Curve{130,260} = 30 Using Bump 1/10;
+Transfinite Curve{217,152} = 20 Using Bump 1/4;
+Transfinite Curve{264,267,269} = 20 Using Bump 1;
+Transfinite Curve{221,223} = 20 Using Bump 4;
+Transfinite Curve{129,-128} = 50 Using Progression 1.01;
+Transfinite Curve{-127} = 35 Using Progression 1.02;
+Transfinite Curve{-235} = 35 Using Progression 1.05;
+Transfinite Curve{-241} = 35 Using Progression 1.1;
+Transfinite Curve{130,260} = 30 Using Bump 1/1.5;
 Transfinite Curve{238} = 30 Using Bump 1;
-Transfinite Curve{-242} = 30 Using Progression 1.13;
-Transfinite Curve{124} = 10 Using Progression 1.3;
-Transfinite Curve{234,263,43,91} = 10 Using Progression 1.3;
-Transfinite Curve{243} = 10 Using Progression 1.3;
+Transfinite Curve{-242} = 30 Using Progression 1;
+
+Transfinite Curve{124,43,91} = 7 Using Progression 1.3;
+Transfinite Curve{234,263} = 7 Using Progression 1.15;
+Transfinite Curve{243} = 7 Using Bump 4;
 
 Transfinite Curve{125,-236} = 40 Using Progression 1.05;
-Transfinite Curve{245} = 40 Using Bump 1;
+Transfinite Curve{-245} = 40 Using Progression 1.07;
 
-Transfinite Curve{244,248,252,250,247,246} = 40 Using Progression 1.07;
+Transfinite Curve{244,248,252,250,247,246} = 40 Using Progression 1.075;
 
 
 // ///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
