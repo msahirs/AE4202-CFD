@@ -316,7 +316,8 @@ Transfinite Curve{8,126} = 50 Using Bump 2;
 
 //Set cushion thickness and progression
 Transfinite Curve{-4,-7,217,218,219,164} = cushion_points Using Progression 1.15;
-Transfinite Curve{265,266,164,-268,258,165,-262} = cushion_points Using Progression 1.2;
+Transfinite Curve{265,266,-268,258,-262} = cushion_points Using Progression 1.2;
+Transfinite Curve{165,164} = cushion_points Using Progression 1.1;
 Transfinite Curve{131} = 30 Using Bump 1/5;
 Transfinite Curve{222} = 30 Using Bump 1/5;
 Transfinite Curve{224} = 30 Using Bump 1;
