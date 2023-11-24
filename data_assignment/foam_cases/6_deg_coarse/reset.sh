@@ -24,4 +24,4 @@ cp ./system/first_order_start/* ./system/
 echo "Restoring 0"
 restore0Dir
 
-# mapFields -consistent ../results/init_conditions/ -sourceTime 'latestTime'
+mapFields -consistent ../results/init_conditions/ -sourceTime 'latestTime'
