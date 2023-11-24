@@ -34,17 +34,17 @@ fi
 runParallel -s decompose \
     redistributePar -decompose -overwrite -withZero
 
-runParallel $(getApplication)
+# runParallel $(getApplication)
 
 
 # move new fvSchemes, fvSolution, controlDict
-echo "moving in second order fvSchemes, fvSolution and controlDict"
+# echo "moving in second order fvSchemes, fvSolution and controlDict"
 rm ./system/fvSchemes
 rm ./system/fvSolution
 rm ./system/controlDict
 cp ./system/second_order/* ./system/
 
-mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_init
+# mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_init
 
 runParallel $(getApplication)
 
