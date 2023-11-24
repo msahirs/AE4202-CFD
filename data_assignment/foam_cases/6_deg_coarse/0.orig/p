@@ -28,12 +28,14 @@ boundaryField
     }
     Inlet
     {
-        type            totalPressure;
-        rho             rho;
-        psi             none;
-        gamma           1;
-        p0              uniform 103773.34;
-        value           uniform 103773.34;
+        type            freestreamPressure;
+        freestreamValue uniform 101325;
+//         type            totalPressure;
+//         rho             rho;
+//         psi             none;
+//         gamma           1;
+//         p0              uniform 103773.34;
+//         value           uniform 103773.34;
     }
     Airfoil
     {

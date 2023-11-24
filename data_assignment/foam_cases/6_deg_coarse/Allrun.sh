@@ -4,9 +4,21 @@ cd "${0%/*}" || exit                                # Run from this directory
 #------------------------------------------------------------------------------
 
 # check if directories are clear, recommend purge, abort
-if [ -d "./postProcessing" ]; then
-    echo "./postProcessing still exists"
-    if [ -d "./processor0" ]; then
+proc_dirs=./processor*
+proc_exists=false
+
+for proc in $proc_dirs
+do
+    if [ -d proc ]; then
+        $proc_exists=true
+    fi
+done
+
+if [ -d "./postProcessing" ] || $proc_exists; then
+    if [ -d "./postProcessing" ]; then
+        echo "./postProcessing still exists"
+    fi
+    if $proc_exists; then
         echo "Decomposed stuff still exists"
     fi
     while true; do
@@ -24,15 +36,7 @@ runParallel -s decompose \
 
 runParallel $(getApplication)
 
-rm ./system/fvSchemes
-rm ./system/fvSolution
-rm ./system/controlDict
-cp ./system/first_order_continue/* ./system/
-mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse_start
 
-runParallel $(getApplication)
-
-mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse_continue
 # move new fvSchemes, fvSolution, controlDict
 echo "moving in second order fvSchemes, fvSolution and controlDict"
 rm ./system/fvSchemes
@@ -40,11 +44,11 @@ rm ./system/fvSolution
 rm ./system/controlDict
 cp ./system/second_order/* ./system/
 
-mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_coarse
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_init
 
 runParallel $(getApplication)
 
-mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam_fine
+mv ./log.rhoPimpleFoam ./log.rhoPimpleFoam
 
 runParallel -s reconstruct \
     redistributePar -reconstruct -overwrite

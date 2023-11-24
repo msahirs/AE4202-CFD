@@ -1,0 +1,128 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2206                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       dictionary;
+    location    "0.0452892/uniform/functionObjects";
+    object      functionObjectProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+cdf7e925f5746741c316f5fbcf39ad0dfca90775
+{
+    solverInfo
+    {
+        scalar
+        {
+            Ux_initial      3.0615714e-06;
+            Ux_final        2.6292263e-14;
+            Uy_initial      6.0655393e-06;
+            Uy_final        4.4017908e-14;
+            p_initial       3.2393883e-05;
+            p_final         4.8630918e-11;
+        }
+        label
+        {
+            Ux_iters        2;
+            Uy_iters        2;
+            p_iters         3;
+        }
+    }
+    forces
+    {
+        scalar
+        {
+            Cd              0.4613696468866095;
+            CdPressure      0.4449622232300669;
+            CdViscous       0.01640742365654259;
+            CdInternal      0;
+            Cd(f)           -0.597192964985645;
+            Cd(f)Pressure   -0.6061178507747139;
+            Cd(f)Viscous    0.00892488578906893;
+            Cd(f)Internal   0;
+            Cd(r)           1.058562611872254;
+            Cd(r)Pressure   1.051080074004781;
+            Cd(r)Viscous    0.007482537867473662;
+            Cd(r)Internal   0;
+            Cl              1.655755576857895;
+            ClPressure      1.65719792477949;
+            ClViscous       -0.001442347921595269;
+            ClInternal      0;
+            Cl(f)           0.2910432319837075;
+            Cl(f)Pressure   0.2913778445637091;
+            Cl(f)Viscous    -0.000334612580001549;
+            Cl(f)Internal   0;
+            Cl(r)           1.364712344874187;
+            Cl(r)Pressure   1.365820080215781;
+            Cl(r)Viscous    -0.00110773534159372;
+            Cl(r)Internal   0;
+            CmPitch         -0.5368345564452399;
+            CmPitchPressure -0.537221117826036;
+            CmPitchViscous  0.0003865613807960853;
+            CmPitchInternal 0;
+            CmRoll          -0.8278777884289498;
+            CmRollPressure  -0.8285989623897474;
+            CmRollViscous   0.000721173960797634;
+            CmRollInternal  0;
+            CmYaw           0.2306848234433053;
+            CmYawPressure   0.222481111615034;
+            CmYawViscous    0.008203711828271294;
+            CmYawInternal   0;
+            Cs              -6.278292444880807e-20;
+            CsPressure      -6.214616359379383e-20;
+            CsViscous       -6.367608550142366e-22;
+            CsInternal      0;
+            Cs(f)           0.2306848234433053;
+            Cs(f)Pressure   0.222481111615034;
+            Cs(f)Viscous    0.008203711828271294;
+            Cs(f)Internal   0;
+            Cs(r)           -0.2306848234433053;
+            Cs(r)Pressure   -0.222481111615034;
+            Cs(r)Viscous    -0.008203711828271294;
+            Cs(r)Internal   0;
+        }
+    }
+}
+
+fieldAverage1
+{
+    U
+    {
+        totalIter       33076;
+        totalTime       0.04528918451045362;
+    }
+    p
+    {
+        totalIter       33076;
+        totalTime       0.04528918451045362;
+    }
+    nut
+    {
+        totalIter       33076;
+        totalTime       0.04528918451045362;
+    }
+    T
+    {
+        totalIter       33076;
+        totalTime       0.04528918451045362;
+    }
+}
+
+surfaces
+{
+    p
+    {
+        file            "<case>/postProcessing/surfaces/0.0452892/p_flap.raw";
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,3 +1,7 @@
-python3 plot_coeff.py -s
-python3 plot_cp.py -s
-python3 plot_residuals.py -s
+#!/bin/sh
+n_iter=500
+python3 plot_coeff.py -s $n_iter
+python3 plot_coeff_time.py -s $n_iter
+python3 plot_cp.py -s $n_iter
+python3 plot_residuals.py -s 
+python3 plot_residuals.py -s -n 
