@@ -8,8 +8,9 @@ changeDictionary
 
 restore0Dir
 
+# renumberMesh
+renumberMesh -overwrite -constant
+
 # map initial conditions
 mapFields -consistent ../results/init_conditions/ -sourceTime 'latestTime'
 
-# renumberMesh
-renumberMesh -overwrite -constant
