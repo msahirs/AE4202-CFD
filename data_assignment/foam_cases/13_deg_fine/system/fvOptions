@@ -1,0 +1,12 @@
+limitT
+{
+	type            limitTemperature;
+	//region fluid;
+	active          yes;
+	limitTemperatureCoeffs
+	{
+		selectionMode   all;
+		min             250;
+		max             350;
+	}
+}

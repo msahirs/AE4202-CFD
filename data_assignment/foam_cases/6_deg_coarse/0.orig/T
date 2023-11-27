@@ -28,9 +28,11 @@ boundaryField
     }
     Inlet
     {
-        type            totalTemperature;
-        T0              uniform 295.01;
-        gamma           1.4;
+//         type            totalTemperature;
+//         T0              uniform 295.01;
+//         gamma           1.4;
+        type freestream;
+        freestreamValue  uniform 293;
     }
     Airfoil
     {

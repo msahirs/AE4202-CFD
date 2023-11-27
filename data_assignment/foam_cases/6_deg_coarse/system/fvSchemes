@@ -17,45 +17,45 @@ FoamFile
 
 // ****** ddt schemes
 // quick
-// ddtSchemes
-// {
-//     default Euler;
-// }
-
-// more accurate
 ddtSchemes
 {
     default backward;
 }
 
+// more accurate
+// ddtSchemes
+// {
+//     default backward;
+// }
+// 
 
 
 // ****** divergence Schemes
 // first order divSchemes
-// divSchemes
-// {
-//     div(phi,U)                           Gauss upwind;
-//     div(phi,omega)                       Gauss upwind;
-//     div(phi,k)                           Gauss upwind;
-//     div(phi,K)                           Gauss upwind;
-//     div(phi,e)                           Gauss upwind;
-//     div(phiv,p)                          Gauss upwind;
-//     div((nuEff*dev2(T(grad(U)))))        Gauss linear;
-//     div(((rho*nuEff)*dev2(T(grad(U)))))  Gauss linear;
-// }
-
-// second order divSchemes
 divSchemes
 {
-    div(phi,U)                      Gauss linearUpwind grad(U);
-    div(phi,omega)                  Gauss linearUpwind grad(omega);
-    div(phi,k)                      Gauss linearUpwind grad(omega);
-    div(phi,e)                      Gauss limitedLinear 0.7;
-    div(phi,K)                      Gauss linear;
-    div(phiv,p)                     Gauss linear;
-    div((nuEff*dev2(T(grad(U)))))   Gauss limitedLinear 0.8;
+    div(phi,U)                           Gauss upwind;
+    div(phi,omega)                       Gauss upwind;
+    div(phi,k)                           Gauss upwind;
+    div(phi,K)                           Gauss upwind;
+    div(phi,e)                           Gauss upwind;
+    div(phiv,p)                          Gauss upwind;
+    div((nuEff*dev2(T(grad(U)))))        Gauss linear;
     div(((rho*nuEff)*dev2(T(grad(U)))))  Gauss linear;
 }
+
+// second order divSchemes
+// divSchemes
+// {
+//     div(phi,U)                      Gauss linearUpwind grad(U);
+//     div(phi,omega)                  Gauss linearUpwind grad(omega);
+//     div(phi,k)                      Gauss linearUpwind grad(omega);
+//     div(phi,e)                      Gauss linear;
+//     div(phi,K)                      Gauss linear;
+//     div(phiv,p)                     Gauss linear;
+//     div((nuEff*dev2(T(grad(U)))))   Gauss limitedLinear 0.8;
+//     div(((rho*nuEff)*dev2(T(grad(U)))))  Gauss linear;
+// }
 
 // second order divSchemes, more accurate but oscillatory
 // divSchemes
@@ -135,6 +135,8 @@ interpolationSchemes
     reconstruct(U)   vanLeerV;
     reconstruct(T)   vanLeer;
 }
+
+
 
 
 wallDist

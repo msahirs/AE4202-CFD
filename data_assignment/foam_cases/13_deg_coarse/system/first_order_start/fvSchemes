@@ -19,7 +19,7 @@ FoamFile
 // quick
 ddtSchemes
 {
-    default Euler;
+    default backward;
 }
 
 // more accurate

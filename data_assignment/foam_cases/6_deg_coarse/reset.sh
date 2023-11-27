@@ -24,5 +24,4 @@ cp ./system/first_order_start/* ./system/
 echo "Restoring 0"
 restore0Dir
 
-echo "renumbering"
-renumberMesh -overwrite -constant
+mapFields -consistent ../results/init_conditions/ -sourceTime 'latestTime'

@@ -64,7 +64,7 @@ SIMPLE
 
 PIMPLE
 {
-    nCorrectors              1;
+    nCorrectors              2;
 //     nNonOrthogonalCorrectors 3; // non-ortho 70 - 85
     nNonOrthogonalCorrectors 2; // non-ortho 60 - 70
 //     nNonOrthogonalCorrectors 1; // non-ortho <60
