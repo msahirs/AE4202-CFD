@@ -305,18 +305,25 @@ Plane Surface(24) = {24};
 Geometry.ScalingFactor = 0.605;
 // Set default discretisation value
 
-default = 75;
+default = 110;
 Transfinite Curve{:} = default;
 
-cushion_points = 75;
+cushion_points = 65;
+between = 50;
 
-inf_prog_wing =  1.10281;
+inf_prog_wing =  1.06281;
 inf_prog_flap = 1.087814;
 
 //Frontal arc
-Transfinite Curve{3} = cushion_points * 1.75 Using Bump 1;
-Transfinite Curve{8} = cushion_points * 1.75 Using Bump 4;
-Transfinite Curve{126} = cushion_points * 1.75 Using Bump 12;
+Transfinite Curve{3} = cushion_points * 2 Using Bump 1;
+Transfinite Curve{8} = cushion_points * 2 Using Bump 4;
+Transfinite Curve{126} = cushion_points * 2 Using Bump 12;
+
+Transfinite Curve{-5,100} = default Using Progression 1.01;
+Transfinite Curve{-6,116} = default Using Progression 1.01;
+Transfinite Curve{-178,237} = default Using Progression 1.015;
+Transfinite Curve{-220} = default Using Progression 1.01;
+Transfinite Curve{117,118} = default Using Progression 1.01;
 
 //Set cushion thickness and progression
 
@@ -325,23 +332,23 @@ Transfinite Curve{-253,259} = default Using Progression 1.01;
 Transfinite Curve{-4,-7,217,164} = cushion_points Using Progression inf_prog_wing;
 Transfinite Curve{218} = cushion_points Using Progression 1.04;
 Transfinite Curve{219} = cushion_points Using Progression 1.06;
-Transfinite Curve{-262} = cushion_points Using Progression 1.075;
+Transfinite Curve{-262} = cushion_points Using Progression 1.045;
 Transfinite Curve{258} = cushion_points Using Progression 1.03;
 Transfinite Curve{265,266,-268} = cushion_points Using Progression 1.04;
 Transfinite Curve{164} = cushion_points Using Progression 1.04;
 Transfinite Curve{165} = cushion_points Using Progression 1.05;
 Transfinite Curve{-131} = cushion_points*1.5 Using Progression 1.02;
-Transfinite Curve{222} = cushion_points*1.5 Using Bump 1;
-Transfinite Curve{224} = cushion_points*1.5 Using Bump 1;
-Transfinite Curve{217} = default*1.1 Using Bump 1;
-Transfinite Curve{152} = default*1.1 Using Bump 1/10;
-Transfinite Curve{-264,267,269} = default*1.1 Using Progression 1.01;
-Transfinite Curve{221,223} = default*1.1 Using Bump 1;
+Transfinite Curve{222} = cushion_points*1.5 Using Progression 1.015;
+Transfinite Curve{224} = cushion_points*1.5 Using Progression 1.015;
+Transfinite Curve{217} = between Using Bump 1/2;
+Transfinite Curve{152} = between Using Bump 1/10;
+Transfinite Curve{-264,267,269} = between Using Progression 1.01;
+Transfinite Curve{221,223} = between Using Bump 1;
 Transfinite Curve{129} = cushion_points * 2 Using Progression 1.01;
 Transfinite Curve{-128} = cushion_points * 2 Using Progression 1.01;
-Transfinite Curve{-127} = cushion_points * 2 Using Progression 1;
-Transfinite Curve{-235} = cushion_points * 2 Using Progression 1;
-Transfinite Curve{-241} = cushion_points * 2 Using Progression 1;
+Transfinite Curve{-127} = cushion_points * 2.2 Using Progression 1;
+Transfinite Curve{-235} = cushion_points * 2.2 Using Bump 2;
+Transfinite Curve{-241} = cushion_points * 2.2 Using Bump 2;
 Transfinite Curve{130,260} = cushion_points Using Progression 1.02;
 Transfinite Curve{238} = cushion_points Using Bump 1;
 Transfinite Curve{-242} = cushion_points Using Bump 1;
@@ -350,10 +357,11 @@ Transfinite Curve{124,43,91} = cushion_points/4 Using Progression 1;
 Transfinite Curve{234,263} = cushion_points/4 Using Progression 1;
 Transfinite Curve{243} = cushion_points/4 Using Bump 1;
 
-Transfinite Curve{125,-236} = cushion_points * 2 Using Progression 1;
+Transfinite Curve{125,-236} = cushion_points * 2 Using Progression 1.02;
 Transfinite Curve{-245} = cushion_points * 2 Using Progression 1.025;
 
-Transfinite Curve{244,248,252,250,247,246} = cushion_points * 4 Using Progression 1.01;
+Transfinite Curve{244,248,247,246} = cushion_points * 6 Using Progression 1.005;
+Transfinite Curve{252,250} = cushion_points * 6 Using Progression 1.005;
 
 
 // ///// TRANSFINITE AND RECOMBINE. END OF PARAMETRISATION
