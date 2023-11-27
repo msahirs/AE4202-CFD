@@ -29,13 +29,6 @@ def read_data(filePath, coeffsToPlot):
 def plot_coeff_step(n_iter, data, plot=None):
     if plot is None:
         fig = plt.figure()
-    #else:
-        #fig = plot
-        #plt.xlabel("Iteration")
-        #plt.ylabel("Coefficient value")
-        #plt.grid()
-        #plt.legend()
-        #plt.tight_layout()
     for key in data.keys():
         plt.plot(range(n_iter), data[key], label=key)
 
@@ -68,7 +61,7 @@ def plot_reference_data(fig):
 def plot_avg(n_iter, coeff_dict, n_steps):
     for key in coeff_dict.keys():
         avg = sum(coeff_dict[key][-n_steps:])/n_steps
-        plt.plot([n_iter - n_steps, n_iter], [avg, avg], "--", label=f"{key} avg: {avg:.3f}")
+        plt.plot([n_iter - n_steps, n_iter], [avg, avg], "--", label=f"{key} avg: {avg:.3f}", marker=".")
 
 
 def plot_coefficients(filepath, coeffs, save, n_steps):

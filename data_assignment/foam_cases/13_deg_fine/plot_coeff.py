@@ -67,8 +67,7 @@ def plot_reference_data(fig):
 def plot_avg(time, coeff_dict, n_steps):
     for key in coeff_dict.keys():
         avg = sum(coeff_dict[key][-n_steps:])/n_steps
-   
-        plt.plot([time[-n_steps], time[-1]], [avg, avg], "--", label=f"{key} avg: {avg:.3f}")
+        plt.plot([time[-n_steps], time[-1]], [avg, avg], "--", label=f"{key} avg: {avg:.3f}", marker=".")
 
 
 def plot_coefficients(filepath, coeffs, save, n_steps):
