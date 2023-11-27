@@ -4,14 +4,12 @@ import sys
 import os
 
 def read_data(filePath, coeffsToPlot):
+    print(filePath)
     with open(filePath) as f:
         raw = f.readlines()[11:]
     coeffs = raw[1].replace("\t", "").split(" ")
     coeffs = list(filter(lambda x: x!="", coeffs))[1:-1]
-    processed = []
-    for line in raw[2:]:
-        processed.append([float(entry) for entry in line.replace("\n", "").split("\t")])
-    processed = np.array(processed)
+    processed = np.genfromtxt(filePath)
     processed_data = {}
     if coeffsToPlot == "all":
         coeffsToPlot = coeffs[1:]
@@ -82,10 +80,11 @@ def plot_coefficients(filepath, coeffs, save, n_steps):
     except FileNotFoundError:
         n_iter, coeff_dict = read_data(filepath + "/0/coefficient.dat", coeffs)
     for directory in dirs[1:]:
-        #n, c = read_data(filepath + "/" + directory + "/coefficient.dat", coeffs)
-        try: n, c = read_data(filepath + "/" + directory + "/coefficient.dat", coeffs)
+        f = max(os.listdir(filepath + "/" + directory), key = len)
+        try: 
+            n, c = read_data(filepath + "/" + directory + "/" + f, coeffs)
         except FileNotFoundError:
-            pass
+            n, c = read_data(filepath + "/" + directory + "/coefficient.dat", coeffs)
         n_iter += n
         for coeff in coeff_dict:
             coeff_dict[coeff]  = np.append(coeff_dict[coeff], c[coeff])

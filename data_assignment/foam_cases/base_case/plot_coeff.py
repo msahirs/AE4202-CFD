@@ -8,10 +8,7 @@ def read_data(filePath, coeffsToPlot):
         raw = f.readlines()[11:]
     coeffs = raw[1].replace("\t", "").split(" ")
     coeffs = list(filter(lambda x: x!="", coeffs))[1:-1]
-    processed = []
-    for line in raw[2:]:
-        processed.append([float(entry) for entry in line.replace("\n", "").split("\t")])
-    processed = np.array(processed)
+    processed = np.genfromtxt(filePath)
     processed_data = {}
     if coeffsToPlot == "all":
         coeffsToPlot = coeffs[1:]
@@ -70,10 +67,7 @@ def plot_reference_data(fig):
 def plot_avg(time, coeff_dict, n_steps):
     for key in coeff_dict.keys():
         avg = sum(coeff_dict[key][-n_steps:])/n_steps
-        #print(sum(coeff_dict[key][-n_steps:]))
-        #print(n_steps)
-        #print(len(coeff_dict[key][-n_steps:]))
-        #exit()
+   
         plt.plot([time[-n_steps], time[-1]], [avg, avg], "--", label=f"{key} avg: {avg:.3f}")
 
 
@@ -86,10 +80,11 @@ def plot_coefficients(filepath, coeffs, save, n_steps):
     except FileNotFoundError:
         time, coeff_dict = read_data(filepath + "/0/coefficient.dat", coeffs)
     for directory in dirs[1:]:
-        t, c = read_data(filepath + "/" + directory + "/coefficient.dat", coeffs)
-        try: t, c = read_data(filepath + "/" + directory + "/coefficient.dat", coeffs)
+        f = max(os.listdir(filepath + "/" + directory), key = len)
+        try: 
+            t, c = read_data(filepath + "/" + directory + "/" + f, coeffs)
         except FileNotFoundError:
-            pass
+            t, c = read_data(filepath + "/" + directory + "/coefficient.dat", coeffs)
         time = np.append(time, t)
         for coeff in coeff_dict:
             coeff_dict[coeff]  = np.append(coeff_dict[coeff], c[coeff])

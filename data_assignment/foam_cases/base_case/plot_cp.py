@@ -60,8 +60,9 @@ def get_cfd_data(surface_dir, n_steps_to_avg, flap_file, wing_file, p_inf, v_inf
     try:
         dirs = [str(i) for i in dirs[-n_steps_to_avg:]]
     except IndexError:
-        print(f"Trying to average over too many values ({n_steps_to_avg}, defaulting to 200")
+        print(f"Trying to average over too many values ({n_steps_to_avg}), defaulting to 200")
         dirs = [str(i) for i in dirs[-n_steps_to_avg:]]
+    print(dirs)
     flap_x, flap_press = process_foam_surface_file(surface_dir + dirs[0] + "/" + flap_file, n_steps_to_avg, True)
     wing_x, wing_press = process_foam_surface_file(surface_dir + dirs[0] + "/" + wing_file,
                                                          n_steps_to_avg, True)

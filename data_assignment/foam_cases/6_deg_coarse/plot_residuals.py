@@ -5,11 +5,21 @@ from time import sleep
 import matplotlib.pyplot as plt
 
 def plot_data_n_iter(filepath, save):
-    filepath+="/solverInfo.dat"
-    time = np.genfromtxt(filepath, skip_header=2, usecols=(0))
-    ux = np.genfromtxt(filepath, skip_header=2, usecols=(3))
-    uy = np.genfromtxt(filepath, skip_header=2, usecols=(6))
-    p = np.genfromtxt(filepath, skip_header=2, usecols=(11))
+    f = max(os.listdir(filepath), key = len)
+    try:
+        fpath = filepath + '/' + f
+        time = np.genfromtxt(fpath, skip_header=2, usecols=(0))
+        ux = np.genfromtxt(fpath, skip_header=2, usecols=(3))
+        uy = np.genfromtxt(fpath, skip_header=2, usecols=(6))
+        p = np.genfromtxt(fpath, skip_header=2, usecols=(11))
+        print(f"using {f}")
+    except:
+        print("using solverInfo.dat")
+        fpath = filepath + "/solverInfo.dat"
+        time = np.genfromtxt(fpath, skip_header=2, usecols=(0))
+        ux = np.genfromtxt(fpath, skip_header=2, usecols=(3))
+        uy = np.genfromtxt(fpath, skip_header=2, usecols=(6))
+        p = np.genfromtxt(fpath, skip_header=2, usecols=(11))
     n_iter = time[:-1].size
     plt.plot(range(n_iter), ux[:time.size-1], label="$U_x$", alpha=0.5)
     plt.plot(range(n_iter), uy[:time.size-1], label="$U_y$", alpha=0.5)
@@ -27,11 +37,23 @@ def plot_data_n_iter(filepath, save):
 
 
 def plot_data_time(filepath, save):
-    filepath+="/solverInfo.dat"
-    time = np.genfromtxt(filepath, skip_header=2, usecols=(0))
-    ux = np.genfromtxt(filepath, skip_header=2, usecols=(3))
-    uy = np.genfromtxt(filepath, skip_header=2, usecols=(6))
-    p = np.genfromtxt(filepath, skip_header=2, usecols=(11))
+    f = max(os.listdir(filepath), key = len)
+    try:
+        fpath = filepath + '/' + f
+        print(fpath)
+        time = np.genfromtxt(fpath, skip_header=2, usecols=(0))
+        ux = np.genfromtxt(fpath, skip_header=2, usecols=(3))
+        uy = np.genfromtxt(fpath, skip_header=2, usecols=(6))
+        p = np.genfromtxt(fpath, skip_header=2, usecols=(11))
+        print(f"using {f}")
+    except:
+        print("using solverInfo.dat")
+        fpath = filepath + "/solverInfo.dat"
+        time = np.genfromtxt(fpath, skip_header=2, usecols=(0))
+        ux = np.genfromtxt(fpath, skip_header=2, usecols=(3))
+        uy = np.genfromtxt(fpath, skip_header=2, usecols=(6))
+        p = np.genfromtxt(fpath, skip_header=2, usecols=(11))
+    
     plt.plot(time[:-1], ux[:time.size-1], label="$U_x$", alpha=0.5)
     plt.plot(time[:-1], uy[:time.size-1], label="$U_y$", alpha=0.5)
     plt.plot(time[:-1], p[:time.size-1], label="$P$", alpha=0.5)
@@ -83,6 +105,7 @@ if "-c" in sys.argv:
 else:
     dir_plt = dirs[-1]
     print(f"defaulting to newest folder {dir_plt}")
+
 
 if not loop:
     try:
