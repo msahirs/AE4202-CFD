@@ -315,9 +315,9 @@ inf_prog_wing =  1.06281;
 inf_prog_flap = 1.087814;
 
 //Frontal arc
-Transfinite Curve{3} = cushion_points * 2 Using Bump 1;
+Transfinite Curve{3} = cushion_points * 2  Using Bump 1/4;
 Transfinite Curve{8} = cushion_points * 2 Using Bump 4;
-Transfinite Curve{126} = cushion_points * 2 Using Bump 12;
+Transfinite Curve{126} = cushion_points * 2 Using Bump 16;
 
 Transfinite Curve{-5,100} = default Using Progression 1.01;
 Transfinite Curve{-6,116} = default Using Progression 1.01;
@@ -348,7 +348,7 @@ Transfinite Curve{129} = cushion_points * 2 Using Progression 1.01;
 Transfinite Curve{-128} = cushion_points * 2 Using Progression 1.01;
 Transfinite Curve{-127} = cushion_points * 2.2 Using Progression 1;
 Transfinite Curve{-235} = cushion_points * 2.2 Using Bump 2;
-Transfinite Curve{-241} = cushion_points * 2.2 Using Bump 2;
+Transfinite Curve{-241} = cushion_points * 2.2 Using Progression 1.005;
 Transfinite Curve{130,260} = cushion_points Using Progression 1.02;
 Transfinite Curve{238} = cushion_points Using Bump 1;
 Transfinite Curve{-242} = cushion_points Using Bump 1;
